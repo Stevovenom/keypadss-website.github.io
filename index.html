@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>Keypad Systems - Just the Way You want it</title>
+
+    <!-- Local Bootstrap CSS -->
+    <link href="http://127.0.0.1:5501/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Add Bootstrap Icons CDN here -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+    <!-- Local Bootstrap JS -->
+    <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        /* Custom styles */
+        .bg-accent\/20 {
+            background-color: rgba(59, 130, 246, 0.2);
+        }
+
+        .absolute.inset-0.opacity-10 {
+            background-image: none !important;
+        }
+
+        .bg-secondary\/20 {
+            background-color: rgba(139, 92, 246, 0.2);
+        }
+
+        .text-accent {
+            color: #3b82f6;
+        }
+
+        .text-secondary {
+            color: #8b5cf6;
+        }
+
+        .border-accent\/50 {
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        /* Line clamp utility */
+        .line-clamp-1 {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+        }
+
+        .line-clamp-2 {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+
+        /* Backdrop blur support */
+        .backdrop-blur-lg {
+            backdrop-filter: blur(16px);
+        }
+
+        /* Button styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid #3b82f6;
+            color: #3b82f6;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        /* Service card hover effects */
+        .service-card {
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Glass card effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-custom .nav-link {
+            padding: 12px 20px !important;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-link.active {
+            background: rgba(255, 255, 255, 0.2) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Animations */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes data-flow {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes data-flow-vertical {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-data-flow {
+            animation: data-flow 8s linear infinite;
+        }
+
+        .animate-data-flow-vertical {
+            animation: data-flow-vertical 6s linear infinite;
+        }
+
+        /* Background gradients */
+        .bg-gradient-radial {
+            background: radial-gradient(ellipse at center, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 70%);
+        }
+
+        /* About section custom scrollbar */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        /* Light theme for about section */
+        .light-theme {
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --border-color: #e5e7eb;
+        }
+
+        .light-theme .text-primary {
+            color: var(--text-primary);
+        }
+
+        .light-theme .text-primary\/80 {
+            color: rgba(31, 41, 55, 0.8);
+        }
+
+        .light-theme .text-primary\/70 {
+            color: rgba(31, 41, 55, 0.7);
+        }
+
+        .light-theme .bg-primary\/5 {
+            background-color: rgba(31, 41, 55, 0.05);
+        }
+
+        .light-theme .bg-primary\/10 {
+            background-color: rgba(31, 41, 55, 0.1);
+        }
+
+        .light-theme .border-primary\/10 {
+            border-color: rgba(31, 41, 55, 0.1);
+        }
+
+        .light-theme .border-primary\/20 {
+            border-color: rgba(31, 41, 55, 0.2);
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-info-item i {
+            color: #3b82f6;
+            font-size: 16px;
+        }
+
+        /* Tooltip for social icons */
+        /* === PURE HOVER BRAND COLORS — NO SIZE/LAYOUT CHANGES === */
+        .social-links a i {
+            transition: color 0.35s ease;
+        }
+
+        /* Facebook */
+        .social-links a[data-platform="Facebook"]:hover i {
+            color: #1877F2;
+        }
+
+        /* X (Twitter) */
+        .social-links a[data-platform="Twitter"]:hover i,
+        .social-links a[data-platform="X"]:hover i {
+            color: #000000;
+        }
+
+        /* LinkedIn */
+        .social-links a[data-platform="LinkedIn"]:hover i {
+            color: #0A66C2;
+        }
+
+        /* Instagram — Gradient text effect on hover */
+        .social-links a[data-platform="Instagram"]:hover i {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .social-links a[data-platform="Instagram"] i {
+            transition: all 0.4s ease;
+        }
+
+        .brand-section {
+            background: white;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 120px;
+            /* Default size */
+            height: 120px;
+            /* Default size */
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .logo-icon img {
+            width: 80px !important;
+            height: 80px !important;
+            object-fit: contain;
+        }
+
+        /* Responsive sizes */
+        @media (max-width: 768px) {
+            .logo-icon {
+                width: 80px;
+                /* Smaller on mobile */
+                height: 80px;
+                /* Smaller on mobile */
+            }
+
+            .logo-icon img {
+                width: 60px !important;
+                height: 60px !important;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .logo-icon {
+                width: 140px;
+                /* Larger on desktop */
+                height: 140px;
+                /* Larger on desktop */
+            }
+
+            .logo-icon img {
+                width: 100px !important;
+                height: 100px !important;
+            }
+        }
+
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px;
+            background: #f8fafc;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .navbar-custom {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            padding: 0;
+        }
+
+        .navbar-custom .nav-link {
+            color: white !important;
+            font-weight: 500;
+            padding: 15px 20px;
+            transition: all 0.3s;
+        }
+
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-link.active {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .pro-version-btn {
+            background: white;
+            color: #3b82f6;
+            border: none;
+            border-radius: 25px;
+            padding: 8px 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .pro-version-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Client Logos Security Styles */
+        .client-logo {
+            width: 160px;
+            height: 120px;
+            background: #f8fafc center center no-repeat;
+            background-size: contain;
+            border-radius: 12px;
+            filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.08));
+            transition: all 0.3s ease;
+            position: relative;
+            margin: 0 auto;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+        }
+
+        .client-logo:hover {
+            transform: translateY(-5px) scale(1.03);
+            filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.12));
+            border-color: #3b82f6;
+        }
+
+        .client-logo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            cursor: not-allowed;
+            border-radius: 12px;
+        }
+
+        .client-logo::before {
+            content: attr(data-client);
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(31, 41, 55, 0.9);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        .client-logo:hover::before {
+            opacity: 1;
+        }
+
+        /* Loading state for better UX */
+        .client-logo.loading {
+            background: #f8fafc url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" stroke="%233b82f6" stroke-width="8" fill="none" stroke-dasharray="60 40"/></svg>') center center no-repeat;
+            background-size: 40px;
+        }
+
+        /* @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+            .bg-clip-text {
+                background-clip: text;
+                -webkit-background-clip: text;
+            }
+        } */
+    </style>
+</head>
+
+<body class="bg-gray-900 min-h-screen text-white">
+    <!-- Header Start -->
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-4">
+                <!-- Left: Navigation Links -->
+                <div class="flex items-center space-x-6 text-sm">
+                    <a href="#" class="text-white hover:text-blue-300 transition-colors">Welcome to Keypad Systems</a>
+                </div>
+
+                <!-- Right: Social Links -->
+                <div class="flex items-center space-x-2">
+                    <!-- <span class="text-sm mr-2">Follow us:</span> -->
+                    <!-- With tooltips -->
+                    <div class="social-links flex space-x-3">
+                        <a href="#" class="social-icon" data-platform="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon" data-platform="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="social-icon" data-platform="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-icon" data-platform="Instagram"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Info Bar -->
+    <div class="brand-section">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-6">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="https://keypadsystems.co.ke/" class="logo-link">
+                        <div class="logo-container">
+                            <img src="assets/images/kss-logo.png" alt="Keypad Systems Logo" class="logo-image">
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full lg:w-2/3">
+                    <!-- Opening Hours -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-alarm"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Opening Hour</p>
+                            <h6 class="font-semibold text-gray-800">Mon - Fri, 8:00 AM - 5:00 PM</h6>
+                        </div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-telephone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Call Us</p>
+                            <h6 class="font-semibold text-gray-800">+254 113 426 561</h6>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Email Us</p>
+                            <h6 class="font-semibold text-gray-800">info@keypadsystems.co.ke</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar - Perfect Layout Match + Your Modern Styling -->
+    <nav class="navbar-custom sticky top-0 z-50 backdrop-blur-xl shadow-2xl">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Mobile Menu Button (Left) -->
+                <button id="mobileMenuBtn" class="lg:hidden text-white focus:outline-none z-50">
+                    <i class="bi bi-list text-3xl"></i>
+                </button>
+
+                <!-- Desktop Menu - Centered (Exactly like old site) -->
+                <div class="hidden lg:flex flex-1 justify-center items-center">
+                    <div
+                        class="flex items-center space-x-1 bg-white/5 backdrop-blur-md rounded-full px-8 py-3 shadow-lg">
+                        <a href="#" class="nav-link active">Home</a>
+                        <a href="about-us.html" class="nav-link">About Us</a>
+                        <a href="services.html" class="nav-link">Services</a>
+                        <a href="#s" class="nav-link">Our Products</a>
+                        <a href="#" class="nav-link">Our Work</a>
+                        <a href="#" class="nav-link">Our Clients</a>
+                        <a href="contact-us.html" class="nav-link">Contact Us</a>
+                    </div>
+                </div>
+
+                <!-- GET A QUOTE Button (Right - Exact Old Site Style) -->
+                <div class="flex-shrink-0">
+                    <a href="contact-us.html"
+                        class="pro-version-btn text-sm font-bold tracking-wider px-8 py-3 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 hidden lg:block">
+                        Request Demo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Dropdown (Full Width, Clean, Matches Old Site Flow) -->
+            <div id="mobileMenu" class="lg:hidden hidden">
+                <div
+                    class="bg-white/10 backdrop-blur-2xl rounded-2xl mt-4 mx-4 shadow-2xl border border-white/20 overflow-hidden">
+                    <div class="py-6 px-8 space-y-4">
+                        <a href="https://keypadsystems.co.ke/"
+                            class="block text-center text-white font-medium text-lg py-3 rounded-lg hover:bg-white/10 transition">Home</a>
+                        <a href="https://keypadsystems.co.ke/index.php/about"
+                            class="block text-center text-white font-medium text-lg py-3 rounded-lg hover:bg-white/10 transition">About
+                            Us</a>
+                        <a href="https://keypadsystems.co.ke/index.php/services"
+                            class="block text-center text-white font-medium text-lg py-3 rounded-lg hover:bg-white/10 transition">Services</a>
+                        <a href="https://keypadsystems.co.ke/index.php/products"
+                            class="block text-center text-white font-medium text-lg py-3 rounded-lg hover:bg-white/10 transition">Our
+                            Products</a>
+                        <a href="https://keypadsystems.co.ke/index.php/portfolio"
+                            class="block text-center text-white font-medium text-lg py-3 rounded-lg hover:bg-white/10 transition">Our
+                            Work</a>
+                        <a href="https://keypadsystems.co.ke/index.php/our-clients"
+                            class="block text-center text-white font-medium text-lg py-3 rounded-lg hover:bg-white/10 transition">Our
+                            Clients</a>
+                        <a href="https://keypadsystems.co.ke/index.php/contact-us"
+                            class="block text-center text-white font-medium text-lg py-3 rounded-lg hover:bg-white/10 transition">Contact
+                            Us</a>
+                        <a href="https://keypadsystems.co.ke/index.php/quote"
+                            class="block text-center bg-white text-blue-600 font-bold text-lg py-4 rounded-xl mt-6 shadow-lg hover:shadow-xl transform hover:scale-105 transition">
+                            GET A QUOTE
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <!-- HERO SECTION - Background Image + Particles + EXACT ORIGINAL LAYOUT -->
+    <section class="relative min-h-screen flex items-center overflow-hidden">
+
+        <!-- Full Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="assets/images/header-1.jpg" alt="Keypad Systems - Software & AI Solutions"
+                class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 bg-black/60"></div>
+        </div>
+
+
+        <!-- Particles.js Canvas (Foreground) -->
+        <div id="particles-js" class="absolute inset-0 z-10 pointer-events-none"></div>
+
+        <!-- Hero Content - EXACT same structure & spacing as before -->
+        <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+
+                <!-- LEFT: Text Content (unchanged layout) -->
+                <!-- LEFT: Text Content - Only CTAs updated -->
+                <div class="space-y-6 sm:space-y-8 max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+                    <div class="inline-block px-4 py-2 mb-4 bg-blue-500/10 rounded-full border border-blue-400/20">
+                        <span class="text-blue-400 font-medium text-xs sm:text-sm">Businesses trust us</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-purple-400 leading-tight mb-4">
+                        Smart, Scalable Software Development for Growing Businesses
+                    </h1>
+
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight mb-4">
+                        <span class="relative">
+                            <span class="relative z-10">Backed By <span class="text-blue-400">7+ Years</span> of
+                                Industry Excellence</span>
+                            <span class="absolute bottom-0 left-0 w-full h-2 sm:h-3 bg-purple-600/20 -rotate-2"></span>
+                        </span>
+                    </h2>
+
+                    <p class="text-base sm:text-lg text-gray-300 mb-6 max-w-prose mx-auto lg:mx-0">
+                        Expert <span class="text-blue-400">Web Applications</span>, Mobile App Development,
+                        Security Systems, <span class="text-blue-400">Web Design</span>, and Data Analytics in Nairobi,
+                        Kenya.
+                    </p>
+
+                    <!-- SMALLER & CLEANER CTAs -->
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                        <a href="contact-us.html"
+                            class="btn btn-primary px-6 py-3 text-base font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center gap-2 group">
+                            Request Demo
+                            <svg class="lucide lucide-arrow-right w-4 h-4 group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M5 12h14"></path>
+                                <path d="m12 5 7 7-7 7"></path>
+                            </svg>
+                        </a>
+                        <a href="services.html"
+                            class="btn btn-outline px-6 py-3 text-base font-semibold rounded-lg border-2 border-white/50 hover:border-white hover:bg-white/10 transition-all duration-300">
+                            Explore Services
+                        </a>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Feature Cards (exactly like your original) -->
+                <div class="relative hidden lg:block">
+                    <div
+                        class="glass-card relative p-6 sm:p-8 space-y-4 sm:space-y-6 rounded-2xl border border-white/10">
+                        <!-- Feature Card 1 -->
+                        <div
+                            class="glass-card p-4 sm:p-6 hover:scale-105 transition-all duration-300 rounded-xl border border-white/5">
+                            <div class="flex items-start space-x-4">
+                                <div class="p-3 bg-blue-500/10 rounded-lg">
+                                    <svg class="lucide lucide-code w-6 h-6 text-blue-400" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <polyline points="16 18 22 12 16 6"></polyline>
+                                        <polyline points="8 6 2 12 8 18"></polyline>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-blue-400 mb-2">Custom Software Development
+                                    </h3>
+                                    <p class="text-gray-300 text-sm">Tailored solutions built for your unique business
+                                        needs</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Feature Card 2 -->
+                        <div
+                            class="glass-card p-4 sm:p-6 hover:scale-105 transition-all duration-300 rounded-xl border border-white/5">
+                            <div class="flex items-start space-x-4">
+                                <div class="p-3 bg-blue-500/10 rounded-lg">
+                                    <svg class="lucide lucide-smartphone w-6 h-6 text-blue-400" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect>
+                                        <path d="M12 18h.01"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-blue-400 mb-2">Mobile & Web Apps</h3>
+                                    <p class="text-gray-300 text-sm">Native & cross-platform apps with stunning UI/UX
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Feature Card 3 -->
+                        <div
+                            class="glass-card p-4 sm:p-6 hover:scale-105 transition-all duration-300 rounded-xl border border-white/5">
+                            <div class="flex items-start space-x-4">
+                                <div class="p-3 bg-blue-500/10 rounded-lg">
+                                    <svg class="lucide lucide-brain w-6 h-6 text-blue-400" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-5 0v-15A2.5 2.5 0 0 1 9.5 2Z">
+                                        </path>
+                                        <path
+                                            d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 5 0v-15A2.5 2.5 0 0 0 14.5 2Z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-blue-400 mb-2">AI & Machine Learning</h3>
+                                    <p class="text-gray-300 text-sm">Intelligent automation and predictive analytics</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Services Section -->
+    <div class="relative z-10 py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <div class="inline-block px-4 py-2 bg-blue-500/20 backdrop-blur-lg rounded-full mb-4">
+                    <span class="text-white text-sm font-medium">Our Our Services</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-purple-400 mb-6">Our Services We Provide Our Clients</h2>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto">We offer a comprehensive range of technology
+                    solutions tailored to meet your business needs with innovation, expertise, and reliability.</p>
+            </div>
+
+            <!-- Our Services Grid - 3 columns layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Service 1: Android & iOS Mobile App Development -->
+                <div
+                    class="service-card p-6 cursor-pointer transition-all duration-500 glass-card rounded-xl border border-white/10 hover:bg-white/15">
+                    <div class="flex items-start space-x-4">
+                        <div
+                            class="p-2 rounded-xl transition-colors duration-300 bg-white/10 flex items-center justify-center overflow-hidden w-16 h-16">
+                            <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-purple-400 mb-2">Android & iOS Mobile App Development
+                            </h3>
+                            <div class="text-gray-300 mb-4 line-clamp-2 overflow-hidden">
+                                <p>Transform your mobile strategy with high-performance, user-centric mobile
+                                    applications for Android and iOS platforms.</p>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-big w-4 h-4 mr-2 text-blue-400 flex-shrink-0">
+                                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                                        <path d="m9 11 3 3L22 4"></path>
+                                    </svg>
+                                    <span class="text-sm">Native iOS Development</span>
+                                </div>
+                                <div class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-big w-4 h-4 mr-2 text-blue-400 flex-shrink-0">
+                                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                                        <path d="m9 11 3 3L22 4"></path>
+                                    </svg>
+                                    <span class="text-sm">Native Android Development</span>
+                                </div>
+                                <div class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-big w-4 h-4 mr-2 text-blue-400 flex-shrink-0">
+                                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                                        <path d="m9 11 3 3L22 4"></path>
+                                    </svg>
+                                    <span class="text-sm">Cross-Platform Solutions</span>
+                                </div>
+                            </div>
+                            <!-- <button class="mt-4 w-full inline-flex items-center justify-center px-4 py-2 border border-blue-500/50 rounded-lg text-white hover:bg-blue-500/20 transition-colors text-sm">
+                                Learn More
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 ml-1">
+                                    <path d="M5 12h14"></path>
+                                    <path d="m12 5 7 7-7 7"></path>
+                                </svg>
+                            </button> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2: Custom Software Development Our Services -->
+                <div
+                    class="service-card p-6 cursor-pointer transition-all duration-500 glass-card rounded-xl border border-white/10 hover:bg-white/15">
+                    <div class="flex items-start space-x-4">
+                        <div
+                            class="p-2 rounded-xl transition-colors duration-300 bg-white/10 flex items-center justify-center overflow-hidden w-16 h-16">
+                            <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-purple-400 mb-2">Custom Software Development Our
+                                Services
+                            </h3>
+                            <div class="text-gray-300 mb-4 line-clamp-2 overflow-hidden">
+                                <p>Transforming innovative ideas into powerful digital solutions across multiple
+                                    platforms and enterprise environments.</p>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-big w-4 h-4 mr-2 text-blue-400 flex-shrink-0">
+                                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                                        <path d="m9 11 3 3L22 4"></path>
+                                    </svg>
+                                    <span class="text-sm">Mobile App Development</span>
+                                </div>
+                                <div class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-big w-4 h-4 mr-2 text-blue-400 flex-shrink-0">
+                                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                                        <path d="m9 11 3 3L22 4"></path>
+                                    </svg>
+                                    <span class="text-sm">Web Application Engineering</span>
+                                </div>
+                                <div class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-big w-4 h-4 mr-2 text-blue-400 flex-shrink-0">
+                                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                                        <path d="m9 11 3 3L22 4"></path>
+                                    </svg>
+                                    <span class="text-sm">Desktop Software Creation</span>
+                                </div>
+                            </div>
+                            <!-- <button class="mt-4 w-full inline-flex items-center justify-center px-4 py-2 border border-blue-500/50 rounded-lg text-white hover:bg-blue-500/20 transition-colors text-sm">
+                                Learn More
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 ml-1">
+                                    <path d="M5 12h14"></path>
+                                    <path d="m12 5 7 7-7 7"></path>
+                                </svg>
+                            </button> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3: Machine Learning & AI Integration -->
+                <div
+                    class="service-card p-6 cursor-pointer transition-all duration-500 glass-card rounded-xl border border-white/10 hover:bg-white/15">
+                    <div class="flex items-start space-x-4">
+                        <div
+                            class="p-2 rounded-xl transition-colors duration-300 bg-white/10 flex items-center justify-center overflow-hidden w-16 h-16">
+                            <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-purple-400 mb-2">Machine Learning & AI Integration
+                            </h3>
+                            <div class="text-gray-300 mb-4 line-clamp-2 overflow-hidden">
+                                <p>Revolutionize your business systems with advanced machine learning and artificial
+                                    intelligence solutions.</p>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-big w-4 h-4 mr-2 text-blue-400 flex-shrink-0">
+                                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                                        <path d="m9 11 3 3L22 4"></path>
+                                    </svg>
+                                    <span class="text-sm">Custom AI Model Development</span>
+                                </div>
+                                <div class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-big w-4 h-4 mr-2 text-blue-400 flex-shrink-0">
+                                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                                        <path d="m9 11 3 3L22 4"></path>
+                                    </svg>
+                                    <span class="text-sm">Machine Learning Algorithms</span>
+                                </div>
+                                <div class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-big w-4 h-4 mr-2 text-blue-400 flex-shrink-0">
+                                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                                        <path d="m9 11 3 3L22 4"></path>
+                                    </svg>
+                                    <span class="text-sm">Predictive Intelligence</span>
+                                </div>
+                            </div>
+                            <!-- <button class="mt-4 w-full inline-flex items-center justify-center px-4 py-2 border border-blue-500/50 rounded-lg text-white hover:bg-blue-500/20 transition-colors text-sm">
+                                Learn More
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 ml-1">
+                                    <path d="M5 12h14"></path>
+                                    <path d="m12 5 7 7-7 7"></path>
+                                </svg>
+                            </button> -->
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- CTA Section -->
+            <div class="mt-16 text-center">
+                <div
+                    class="inline-block p-8 bg-gradient-to-r from-blue-500/20 to-purple-600/20 backdrop-blur-lg rounded-xl border border-white/10">
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-4 flex-wrap">
+                        <div class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-circle-check-big w-5 h-5 text-purple-400">
+                                <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                                <path d="m9 11 3 3L22 4"></path>
+                            </svg>
+                            <span class="text-gray-300">Affordable Pricing</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-circle-alert w-5 h-5 text-blue-400">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" x2="12" y1="8" y2="12"></line>
+                                <line x1="12" x2="12.01" y1="16" y2="16"></line>
+                            </svg>
+                            <span class="text-gray-300">Free Consultation</span>
+                        </div>
+                        <button class="btn btn-primary px-6 py-3 md:ml-4 w-full md:w-auto">
+                            Get a Quote
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5">
+                                <path d="M5 12h14"></path>
+                                <path d="m12 5 7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <!-- About Us Section -->
+    <section class="relative overflow-hidden bg-white light-theme" id="about">
+        <div class="absolute inset-0 overflow-hidden z-0">
+            <div class="absolute inset-0 opacity-10"
+                style="background-image: radial-gradient(rgb(85, 164, 192) 1px, transparent 1px), radial-gradient(rgb(226, 121, 46) 1px, transparent 1px); background-size: 30px 30px; background-position: 0px 0px, 15px 15px;">
+            </div>
+            <div class="absolute inset-0 opacity-10"
+                style="background-image: linear-gradient(rgb(85, 164, 192) 1px, transparent 1px), linear-gradient(to right, rgb(226, 121, 46) 1px, transparent 1px); background-size: 80px 80px;">
+            </div>
+            <div class="absolute top-[10%] left-[10%] w-80 h-80 rounded-full bg-blue-500/5 filter blur-3xl"></div>
+            <div class="absolute bottom-[10%] right-[10%] w-80 h-80 rounded-full bg-purple-600/5 filter blur-3xl"></div>
+        </div>
+
+        <div class="relative z-10">
+            <section class="py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+                    <!-- Organization Section -->
+                    <div class="mb-12">
+                        <div class="text-center mb-8">
+                            <div class="inline-block px-4 py-2 mb-4 bg-blue-500/10 backdrop-blur-sm rounded-full">
+                                <span class="text-blue-500 font-medium text-sm">About Us</span>
+                            </div>
+                            <h2 class="text-4xl md:text-5xl font-bold text-purple-600 mb-6">Keypad Solutions LTD</h2>
+                            <p class="text-lg text-primary/80 max-w-2xl mx-auto">We're a team of dedicated professionals
+                                passionate about building innovative tech solutions that help businesses in Kenya thrive
+                                in the digital age.</p>
+                        </div>
+                    </div>
+
+                    <!-- Mission Section -->
+                    <div class="mb-10">
+                        <div class="bg-primary/5 backdrop-blur-sm rounded-xl overflow-hidden border border-primary/10">
+                            <div class="flex border-b border-primary/20">
+                                <button
+                                    class="flex-1 py-3 px-4 text-sm font-medium transition-all duration-300 text-primary/70 hover:text-primary hover:bg-primary/5">
+                                    <div class="flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-info w-4 h-4 mr-2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <path d="M12 16v-4"></path>
+                                            <path d="M12 8h.01"></path>
+                                        </svg>
+                                        About us
+                                    </div>
+                                </button>
+                                <button
+                                    class="flex-1 py-3 px-4 text-sm font-medium transition-all duration-300 text-primary border-b-2 border-purple-600 bg-primary/5">
+                                    <div class="flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-target w-4 h-4 mr-2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <circle cx="12" cy="12" r="6"></circle>
+                                            <circle cx="12" cy="12" r="2"></circle>
+                                        </svg>
+                                        Our Mission
+                                    </div>
+                                </button>
+                                <button
+                                    class="flex-1 py-3 px-4 text-sm font-medium transition-all duration-300 text-primary/70 hover:text-primary hover:bg-primary/5">
+                                    <div class="flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-eye w-4 h-4 mr-2">
+                                            <path
+                                                d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0">
+                                            </path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                        Our Vision
+                                    </div>
+                                </button>
+                                <button
+                                    class="flex-1 py-3 px-4 text-sm font-medium transition-all duration-300 text-primary/70 hover:text-primary hover:bg-primary/5">
+                                    <div class="flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-clock w-4 h-4 mr-2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polyline points="12 6 12 12 16 14"></polyline>
+                                        </svg>
+                                        Our History
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-purple-600 mb-3 flex items-center">Our Driving Purpose
+                                </h3>
+                                <p class="text-primary/80 leading-relaxed mb-5">At Keypad, our mission is to empower
+                                    businesses through innovative, accessible, and scalable technology solutions. We are
+                                    committed to bridging the technological gap in Africa by providing cutting-edge
+                                    software development, AI implementation, and digital transformation Our Services
+                                    that
+                                    enable organizations to thrive in the digital age.</p>
+                                <div class="flex justify-end">
+                                    <!-- <button class="btn btn-outline px-4 py-2 text-sm">
+                                    Learn More 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4">
+                                        <path d="M5 12h14"></path>
+                                        <path d="m12 5 7 7-7 7"></path>
+                                    </svg>
+                                </button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="relative py-24 bg-gray-900" id="products">
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 right-0 w-full h-96 bg-gradient-to-bl from-blue-600/10 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 w-full h-96 bg-gradient-to-tr from-purple-600/10 to-transparent"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <div class="inline-block px-4 py-2 bg-blue-500/20 backdrop-blur-lg rounded-full mb-4">
+                    <span class="text-white text-sm font-medium">Our Products</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-purple-400 mb-6">Our Most Sort Products</h2>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto">Discover our innovative software solutions designed
+                    to transform your business operations and drive growth.</p>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                <!-- Product 1: Custom Software Solutions -->
+                <div
+                    class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-600/10 backdrop-blur-lg border border-white/10 hover:border-blue-500/30 transition-all duration-500">
+                    <div class="flex flex-col md:flex-row h-full">
+                        <!-- Content Side -->
+                        <div class="p-8 flex-1 flex flex-col justify-center">
+                            <h3 class="text-2xl font-bold text-purple-400 mb-4">Custom Software Solutions</h3>
+                            <div class="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-4"></div>
+                            <p class="text-gray-300 mb-6">Tailored software applications designed to meet your specific
+                                business needs and workflow requirements.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-check-circle w-4 h-4 text-blue-400 mr-2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    <span class="text-sm">Business Process Automation</span>
+                                </li>
+                                <li class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-check-circle w-4 h-4 text-blue-400 mr-2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    <span class="text-sm">Custom Workflow Solutions</span>
+                                </li>
+                                <li class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-check-circle w-4 h-4 text-blue-400 mr-2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    <span class="text-sm">Scalable Architecture</span>
+                                </li>
+                            </ul>
+                            <button
+                                class="btn btn-outline w-full md:w-auto justify-center group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                                Learn More
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-arrow-right w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform">
+                                    <path d="M5 12h14"></path>
+                                    <path d="m12 5 7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Image Side -->
+                        <div class="relative md:w-2/5 overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-l from-blue-500/20 to-transparent z-10"></div>
+                            <div class="h-full w-full bg-cover bg-center transform group-hover:scale-110 transition-transform duration-700"
+                                style="background-image: url('https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2: AI & Machine Learning -->
+                <div
+                    class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-600/10 to-blue-500/10 backdrop-blur-lg border border-white/10 hover:border-purple-500/30 transition-all duration-500">
+                    <div class="flex flex-col md:flex-row h-full">
+                        <!-- Content Side -->
+                        <div class="p-8 flex-1 flex flex-col justify-center order-2 md:order-1">
+                            <h3 class="text-2xl font-bold text-blue-400 mb-4">AI & Machine Learning</h3>
+                            <div class="w-12 h-1 bg-gradient-to-r from-purple-600 to-blue-500 rounded-full mb-4"></div>
+                            <p class="text-gray-300 mb-6">Intelligent solutions that leverage artificial intelligence to
+                                automate processes and provide data-driven insights.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-check-circle w-4 h-4 text-purple-400 mr-2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    <span class="text-sm">Predictive Analytics</span>
+                                </li>
+                                <li class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-check-circle w-4 h-4 text-purple-400 mr-2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    <span class="text-sm">Natural Language Processing</span>
+                                </li>
+                                <li class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-check-circle w-4 h-4 text-purple-400 mr-2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    <span class="text-sm">Computer Vision Solutions</span>
+                                </li>
+                            </ul>
+                            <button
+                                class="btn btn-outline w-full md:w-auto justify-center group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                                Learn More
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-arrow-right w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform">
+                                    <path d="M5 12h14"></path>
+                                    <path d="m12 5 7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Image Side -->
+                        <div class="relative md:w-2/5 overflow-hidden order-1 md:order-2">
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-transparent z-10"></div>
+                            <div class="h-full w-full bg-cover bg-center transform group-hover:scale-110 transition-transform duration-700"
+                                style="background-image: url('https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3: Mobile Applications -->
+                <div
+                    class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-600/10 backdrop-blur-lg border border-white/10 hover:border-blue-500/30 transition-all duration-500">
+                    <div class="flex flex-col md:flex-row h-full">
+                        <!-- Image Side -->
+                        <div class="relative md:w-2/5 overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-l from-blue-500/20 to-transparent z-10"></div>
+                            <div class="h-full w-full bg-cover bg-center transform group-hover:scale-110 transition-transform duration-700"
+                                style="background-image: url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                            </div>
+                        </div>
+
+                        <!-- Content Side -->
+                        <div class="p-8 flex-1 flex flex-col justify-center">
+                            <h3 class="text-2xl font-bold text-purple-400 mb-4">Mobile Applications</h3>
+                            <div class="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-4"></div>
+                            <p class="text-gray-300 mb-6">Native and cross-platform mobile apps that deliver exceptional
+                                user experiences across all devices.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-check-circle w-4 h-4 text-blue-400 mr-2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    <span class="text-sm">iOS & Android Development</span>
+                                </li>
+                                <li class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-check-circle w-4 h-4 text-blue-400 mr-2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    <span class="text-sm">Cross-Platform Solutions</span>
+                                </li>
+                                <li class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-check-circle w-4 h-4 text-blue-400 mr-2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    <span class="text-sm">App Store Optimization</span>
+                                </li>
+                            </ul>
+                            <button
+                                class="btn btn-outline w-full md:w-auto justify-center group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                                Learn More
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-arrow-right w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform">
+                                    <path d="M5 12h14"></path>
+                                    <path d="m12 5 7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4: Web Development -->
+                <div
+                    class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-600/10 to-blue-500/10 backdrop-blur-lg border border-white/10 hover:border-purple-500/30 transition-all duration-500">
+                    <div class="flex flex-col md:flex-row h-full">
+                        <!-- Image Side -->
+                        <div class="relative md:w-2/5 overflow-hidden order-1">
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-transparent z-10"></div>
+                            <div class="h-full w-full bg-cover bg-center transform group-hover:scale-110 transition-transform duration-700"
+                                style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                            </div>
+                        </div>
+
+                        <!-- Content Side -->
+                        <div class="p-8 flex-1 flex flex-col justify-center order-2">
+                            <h3 class="text-2xl font-bold text-blue-400 mb-4">Web Development</h3>
+                            <div class="w-12 h-1 bg-gradient-to-r from-purple-600 to-blue-500 rounded-full mb-4"></div>
+                            <p class="text-gray-300 mb-6">Responsive, high-performance websites and web applications
+                                that drive engagement and conversions.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-check-circle w-4 h-4 text-purple-400 mr-2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    <span class="text-sm">E-commerce Solutions</span>
+                                </li>
+                                <li class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-check-circle w-4 h-4 text-purple-400 mr-2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    <span class="text-sm">Progressive Web Apps</span>
+                                </li>
+                                <li class="flex items-center text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-check-circle w-4 h-4 text-purple-400 mr-2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    <span class="text-sm">SEO Optimization</span>
+                                </li>
+                            </ul>
+                            <button
+                                class="btn btn-outline w-full md:w-auto justify-center group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                                Learn More
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-arrow-right w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform">
+                                    <path d="M5 12h14"></path>
+                                    <path d="m12 5 7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="mt-16 text-center">
+                <div
+                    class="inline-block p-8 bg-gradient-to-r from-blue-500/20 to-purple-600/20 backdrop-blur-lg rounded-xl border border-white/10">
+                    <h3 class="text-2xl font-bold text-white mb-4">Ready to Transform Your Business?</h3>
+                    <p class="text-gray-300 mb-6 max-w-2xl mx-auto">Let's discuss how our products can help you achieve
+                        your business goals with cutting-edge technology solutions.</p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <button class="btn btn-primary px-8 py-3">
+                            Get Started Today
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 ml-2">
+                                <path d="M5 12h14"></path>
+                                <path d="m12 5 7 7-7 7"></path>
+                            </svg>
+                        </button>
+                        <button class="btn btn-outline px-8 py-3">
+                            View All Products
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Clients Section -->
+    <section class="py-16 bg-gray-50 light-theme">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <div class="inline-block px-4 py-2 bg-blue-500/20 backdrop-blur-lg rounded-full mb-4">
+                    <span class="text-blue-600 font-medium text-sm">Our Clients</span>
+                </div>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                    Since our inception, we have been helping organizations achieve their goals with impactful,
+                    industry-specific software solutions. We are proud to earn the trust of a wide range of
+                    leading brands from educational institutions to religious organizations.
+                </p>
+            </div>
+
+            <!-- Client Grid with Security Measures -->
+            <div class="client-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 items-center justify-center mb-12"
+                id="clientGrid">
+                <!-- Client 1 -->
+                <div class="client-logo" data-image="clients/client-01.png" data-client="Corporate Client"></div>
+
+                <!-- Client 2 -->
+                <div class="client-logo" data-image="clients/cleint-school-02.png"
+                    data-client="Educational Institution"></div>
+
+                <!-- Client 3 -->
+                <div class="client-logo" data-image="clients/client-church-01.png" data-client="Religious Organization">
+                </div>
+
+                <!-- Client 4 -->
+                <div class="client-logo" data-image="clients/client-hr-01.png" data-client="HR Solutions Client"></div>
+
+                <!-- Client 5 -->
+                <div class="client-logo" data-image="clients/client-hr-02.png" data-client="HR Management"></div>
+
+                <!-- Client 6 -->
+                <div class="client-logo" data-image="clients/client-school-03.png" data-client="School System"></div>
+
+                <!-- Client 7 -->
+                <div class="client-logo" data-image="clients/client-school-04.png" data-client="Educational Platform">
+                </div>
+
+                <!-- Client 8 -->
+                <div class="client-logo" data-image="clients/client-school-05.png" data-client="Learning Institution">
+                </div>
+
+                <!-- Client 9 -->
+                <div class="client-logo" data-image="clients/client-school-06.png" data-client="Academic Client"></div>
+
+                <!-- Client 10 -->
+                <div class="client-logo" data-image="clients/client-school-07.png" data-client="School Management">
+                </div>
+
+                <!-- Client 11 -->
+                <div class="client-logo" data-image="clients/client-smartchurch-01.png" data-client="Church Management">
+                </div>
+
+                <!-- Client 12 -->
+                <div class="client-logo" data-image="clients/client-smartchurch-02.png" data-client="Religious App">
+                </div>
+
+                <!-- Client 13 -->
+                <div class="client-logo" data-image="clients/client-smartchurch-03.png" data-client="Church Solutions">
+                </div>
+
+                <!-- Client 14 -->
+                <div class="client-logo" data-image="clients/client-smartchurch-04.png"
+                    data-client="Faith Organization"></div>
+
+                <!-- Client 15 -->
+                <div class="client-logo" data-image="clients/client-smartchurch-05.png" data-client="Religious Tech">
+                </div>
+            </div>
+
+            <!-- Client Categories -->
+            <!-- <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div class="text-center p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="bi bi-building text-blue-600 text-2xl"></i>
+                </div>
+                <h4 class="text-xl font-bold text-gray-800 mb-3">Educational Institutions</h4>
+                <p class="text-gray-600">Schools and learning platforms leveraging our technology for enhanced educational experiences</p>
+            </div>
+            
+            <div class="text-center p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="bi bi-house-door text-purple-600 text-2xl"></i>
+                </div>
+                <h4 class="text-xl font-bold text-gray-800 mb-3">Religious Organizations</h4>
+                <p class="text-gray-600">Churches and faith-based organizations using our solutions for community management</p>
+            </div>
+            
+            <div class="text-center p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="bi bi-briefcase text-green-600 text-2xl"></i>
+                </div>
+                <h4 class="text-xl font-bold text-gray-800 mb-3">Corporate Clients</h4>
+                <p class="text-gray-600">Businesses transforming their operations with our innovative HR and management solutions</p>
+            </div>
+        </div> -->
+
+            <!-- CTA Button -->
+            <div class="text-center">
+                <a href="clients.html" class="btn btn-primary px-8 py-3 inline-flex items-center">
+                    <span>View All Client Stories</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-arrow-right w-4 h-4 ml-2">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Add interactivity
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Service cards interaction
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                const learnMoreBtn = card.querySelector('button');
+                if (learnMoreBtn) {
+                    learnMoreBtn.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        const serviceTitle = card.querySelector('h3').textContent;
+                        alert(`Learn More clicked for: ${serviceTitle}`);
+                    });
+                }
+            });
+
+            // CTA buttons
+            const getQuoteButtons = document.querySelectorAll('.btn-primary');
+            getQuoteButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    alert('Get a Quote clicked! This would typically open a contact form.');
+                });
+            });
+
+            const contactButtons = document.querySelectorAll('.btn-outline');
+            contactButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    alert('Contact Us clicked! This would typically open a contact form.');
+                });
+            });
+
+            // About section tab functionality
+            const aboutTabs = document.querySelectorAll('#about button');
+            aboutTabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    // Remove active state from all tabs
+                    aboutTabs.forEach(t => {
+                        t.classList.remove('border-b-2', 'border-purple-600', 'bg-primary/5', 'text-primary');
+                        t.classList.add('text-primary/70');
+                    });
+
+                    // Add active state to clicked tab
+                    this.classList.add('border-b-2', 'border-purple-600', 'bg-primary/5', 'text-primary');
+                    this.classList.remove('text-primary/70');
+                });
+            });
+        });
+
+        // Client Logos Security Implementation
+        document.addEventListener("DOMContentLoaded", function () {
+            // Lazy load client logos with security
+            const logos = document.querySelectorAll('.client-logo');
+
+            logos.forEach(logo => {
+                // Add loading state
+                logo.classList.add('loading');
+
+                // Construct secure image path
+                const imagePath = logo.getAttribute('data-image');
+                const url = 'assets/images/' + imagePath;
+
+                // Create image element to preload
+                const img = new Image();
+                img.onload = function () {
+                    // Set background image only after load
+                    logo.style.backgroundImage = `url(${url})`;
+                    logo.classList.remove('loading');
+                };
+
+                img.onerror = function () {
+                    // Fallback if image fails to load
+                    logo.style.background = '#f8fafc';
+                    logo.classList.remove('loading');
+                    console.warn('Failed to load client logo:', url);
+                };
+
+                img.src = url;
+            });
+
+            // Enhanced Right-click & drag protection
+            const clientGrid = document.getElementById('clientGrid');
+            if (clientGrid) {
+                // Prevent right-click context menu
+                clientGrid.addEventListener('contextmenu', function (e) {
+                    e.preventDefault();
+                    showSecurityMessage('Image downloading is disabled');
+                });
+
+                // Prevent drag start
+                clientGrid.addEventListener('dragstart', function (e) {
+                    if (e.target.classList.contains('client-logo')) {
+                        e.preventDefault();
+                        return false;
+                    }
+                });
+
+                // Prevent text selection
+                clientGrid.addEventListener('selectstart', function (e) {
+                    e.preventDefault();
+                });
+
+                // Additional protection for individual logos
+                logos.forEach(logo => {
+                    logo.addEventListener('contextmenu', function (e) {
+                        e.preventDefault();
+                        showSecurityMessage('Client logos are protected');
+                    });
+
+                    logo.addEventListener('dragstart', function (e) {
+                        e.preventDefault();
+                        return false;
+                    });
+                });
+            }
+
+            // Security notification function
+            function showSecurityMessage(message) {
+                // Create a subtle notification
+                const notification = document.createElement('div');
+                notification.textContent = message;
+                notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(239, 68, 68, 0.9);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            z-index: 10000;
+            animation: slideIn 0.3s ease;
+        `;
+
+                document.body.appendChild(notification);
+
+                // Remove after 2 seconds
+                setTimeout(() => {
+                    notification.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => {
+                        if (notification.parentNode) {
+                            notification.parentNode.removeChild(notification);
+                        }
+                    }, 300);
+                }, 2000);
+            }
+        });
+
+        // Add these animations to your CSS
+        const style = document.createElement('style');
+        style.textContent = `
+    @keyframes slideIn {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+    
+    @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+    }
+`;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>

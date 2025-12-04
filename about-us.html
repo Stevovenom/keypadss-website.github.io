@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>About Us - Keypad Systems</title>
+
+    <!-- Local Bootstrap CSS -->
+    <link href="bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Add Bootstrap Icons CDN here -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+    <!-- Local Bootstrap JS -->
+    <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    
+    <style>
+        /* Custom styles (cleaned up - no duplicates) */
+        .bg-accent\/20 {
+            background-color: rgba(59, 130, 246, 0.2);
+        }
+
+        .bg-secondary\/20 {
+            background-color: rgba(139, 92, 246, 0.2);
+        }
+
+        .text-accent {
+            color: #3b82f6;
+        }
+
+        .text-secondary {
+            color: #8b5cf6;
+        }
+
+        .border-accent\/50 {
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        /* Line clamp utility */
+        .line-clamp-1 {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+        }
+
+        .line-clamp-2 {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+
+        /* Backdrop blur support */
+        .backdrop-blur-lg {
+            backdrop-filter: blur(16px);
+        }
+
+        /* Button styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease-in-out;
+            /* Improved transition */
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.02);
+            /* Added scale for better feel */
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid #3b82f6;
+            color: #3b82f6;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: #3b82f6;
+            color: white;
+            transform: scale(1.02);
+            /* Added for consistency */
+        }
+
+        /* Service card hover effects */
+        .service-card {
+            transition: all 0.3s ease-in-out;
+            /* Improved */
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            /* Added scale for better transition */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Glass card effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes data-flow {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes data-flow-vertical {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        .animate-data-flow {
+            animation: data-flow 8s linear infinite;
+        }
+
+        .animate-data-flow-vertical {
+            animation: data-flow-vertical 6s linear infinite;
+        }
+
+        /* Background gradients */
+        .bg-gradient-radial {
+            background: radial-gradient(ellipse at center, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 70%);
+        }
+
+        /* About section custom scrollbar */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        /* Light theme for about section */
+        .light-theme {
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --border-color: #e5e7eb;
+        }
+
+        .light-theme .text-primary {
+            color: var(--text-primary);
+        }
+
+        .light-theme .text-primary\/80 {
+            color: rgba(31, 41, 55, 0.8);
+        }
+
+        .light-theme .text-primary\/70 {
+            color: rgba(31, 41, 55, 0.7);
+        }
+
+        .light-theme .bg-primary\/5 {
+            background-color: rgba(31, 41, 55, 0.05);
+        }
+
+        .light-theme .bg-primary\/10 {
+            background-color: rgba(31, 41, 55, 0.1);
+        }
+
+        .light-theme .border-primary\/10 {
+            border-color: rgba(31, 41, 55, 0.1);
+        }
+
+        .light-theme .border-primary\/20 {
+            border-color: rgba(31, 41, 55, 0.2);
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-info-item i {
+            color: #3b82f6;
+            font-size: 16px;
+        }
+
+        /* Tooltip for social icons */
+        /* === PURE HOVER BRAND COLORS — NO SIZE/LAYOUT CHANGES === */
+        .social-links a i {
+            transition: color 0.35s ease-in-out;
+            /* Improved */
+        }
+
+        /* Facebook */
+        .social-links a[data-platform="Facebook"]:hover i {
+            color: #1877F2;
+        }
+
+        /* X (Twitter) */
+        .social-links a[data-platform="Twitter"]:hover i,
+        .social-links a[data-platform="X"]:hover i {
+            color: #000000;
+        }
+
+        /* LinkedIn */
+        .social-links a[data-platform="LinkedIn"]:hover i {
+            color: #0A66C2;
+        }
+
+        /* Instagram — Gradient text effect on hover */
+        .social-links a[data-platform="Instagram"]:hover i {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .social-links a[data-platform="Instagram"] i {
+            transition: all 0.4s ease-in-out;
+            /* Improved */
+        }
+
+        .brand-section {
+            background: white;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 120px;
+            /* Default size */
+            height: 120px;
+            /* Default size */
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+            /* Improved */
+        }
+
+        .logo-icon img {
+            width: 80px !important;
+            height: 80px !important;
+            object-fit: contain;
+        }
+
+        /* Responsive sizes */
+        @media (max-width: 768px) {
+            .logo-icon {
+                width: 80px;
+                /* Smaller on mobile */
+                height: 80px;
+                /* Smaller on mobile */
+            }
+
+            .logo-icon img {
+                width: 60px !important;
+                height: 60px !important;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .logo-icon {
+                width: 140px;
+                /* Larger on desktop */
+                height: 140px;
+                /* Larger on desktop */
+            }
+
+            .logo-icon img {
+                width: 100px !important;
+                height: 100px !important;
+            }
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px;
+            background: #f8fafc;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .navbar-custom {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            /* Exact match to index.html */
+            padding: 0;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-custom .nav-link {
+            color: white !important;
+            font-weight: 500;
+            font-size: 15px;
+            padding: 12px 24px !important;
+            /* Slightly wider for better pill look */
+            border-radius: 9999px;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            /* Fixed & improved transition */
+        }
+
+        .navbar-custom .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 9999px;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-custom .nav-link:hover::before,
+        .navbar-custom .nav-link.active::before {
+            transform: scale(1);
+        }
+
+        .navbar-custom .nav-link:hover,
+
+        .navbar-custom .nav-link.active {
+            color: white !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            /* background: rgba(255, 255, 255, 0.1) !important; */
+            /* Full white pill for "encircled" look */
+            /* color: #3b82f6 !important; Blue text to match buttons */
+            /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);  */
+            /* transform: scale(1.05); */
+            /* Slight scale for active */
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .pro-version-btn {
+            background: white;
+            color: #3b82f6;
+            border: none;
+            border-radius: 25px;
+            padding: 8px 20px;
+            font-weight: 600;
+            transition: all 0.3s ease-in-out;
+            /* Improved */
+        }
+
+        .pro-version-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            /* Better transition feel */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Background image with scroll effect */
+        .scroll-bg-container {
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .scroll-bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            transition: opacity 0.5s ease-in-out;
+            /* Improved scroll transition */
+            z-index: -1;
+        }
+
+        .scroll-bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to bottom, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.7));
+            z-index: -1;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            overflow-y: auto;
+        }
+
+        /* Fix for scrolling */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        /* Footer Styles */
+        .bottom_footer {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: white;
+            padding: 24px 0;
+            margin-top: auto;
+            /* ensures it stays at bottom even if content is short */
+            width: 100%;
+        }
+
+        .bottom_footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .float_left {
+            float: left;
+        }
+
+        .float_right {
+            float: right;
+        }
+
+        @media (max-width: 768px) {
+
+            .float_left,
+            .float_right {
+                float: none;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+        }
+
+        /* Add some padding to the last section to ensure content isn't hidden behind footer */
+        .content-wrapper {
+            padding-bottom: 0;
+            /* Space for footer when it appears */
+        }
+        
+    </style>
+    <!-- Preload critical images -->
+<link rel="preload" href="assets/images/kss-logo.png" as="image" type="image/png">
+</head>
+
+<body class="bg-gray-900 min-h-screen text-white scroll-bg-container">
+    <!-- Background Image with Scroll Effect -->
+    <div class="scroll-bg-image" id="scrollBg"></div>
+    <div class="scroll-bg-overlay"></div>
+
+    <!-- Header Start -->
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-4">
+                <!-- Left: Navigation Links -->
+                <div class="flex items-center space-x-6 text-sm">
+                    <a href="index.html" class="text-white hover:text-blue-300 transition-colors">← Back to Home</a>
+                </div>
+
+                <!-- Right: Social Links -->
+                <div class="flex items-center space-x-2">
+                    <!-- <span class="text-sm mr-2">Follow us:</span> -->
+                    <!-- With tooltips -->
+                    <div class="social-links flex space-x-3">
+                        <a href="#" class="social-icon" data-platform="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon" data-platform="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="social-icon" data-platform="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-icon" data-platform="Instagram"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Info Bar -->
+    <div class="brand-section">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-6">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="https://keypadsystems.co.ke/" class="logo-link">
+                        <div class="logo-container">
+                            <img src="assets/images/kss-logo.png" alt="Keypad Systems Logo" class="logo-image" loading="eager">
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full lg:w-2/3">
+                    <!-- Opening Hours -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-alarm"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Opening Hour</p>
+                            <h6 class="font-semibold text-gray-800">Mon - Fri, 8:00 AM - 5:00 PM</h6>
+                        </div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-telephone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Call Us</p>
+                            <h6 class="font-semibold text-gray-800">+254 113 426 561</h6>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Email Us</p>
+                            <h6 class="font-semibold text-gray-800">info@keypadsystems.co.ke</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar - FIXED & FULLY WORKING -->
+    <nav class="navbar-custom sticky top-0 z-50 backdrop-blur-xl shadow-2xl">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden text-white focus:outline-none z-50">
+                    <i class="bi bi-list text-3xl"></i>
+                </button>
+
+                <!-- Desktop Menu - Centered -->
+                <div class="hidden lg:flex flex-1 justify-center items-center">
+                    <div
+                        class="flex items-center space-x-1 bg-white/5 backdrop-blur-md rounded-full px-8 py-3 shadow-lg">
+                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="about-us.html" class="nav-link active">About Us</a>
+                        <a href="services.html" class="nav-link">Services</a>
+                        <a href="#" class="nav-link">Our Products</a>
+                        <a href="#" class="nav-link">Our Work</a>
+                        <a href="#" class="nav-link">Our Clients</a>
+                        <a href="contact-us.html" class="nav-link">Contact Us</a>
+                    </div>
+                </div>
+
+                <!-- Request Demo Button (Desktop) -->
+                <div class="flex-shrink-0">
+                    <a href="contact-us.html"
+                        class="pro-version-btn text-sm font-bold tracking-wider px-8 py-3 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 hidden lg:block">
+                        Request Demo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobileMenu" class="lg:hidden hidden">
+                <div
+                    class="bg-white/10 backdrop-blur-2xl rounded-2xl mt-4 mx-4 shadow-2xl border border-white/20 overflow-hidden">
+                    <div class="py-6 px-8 space-y-4">
+                        <a href="index.html"
+                            class="block text-center text-white font-medium text-lg py-3 rounded-lg hover:bg-white/10 transition">Home</a>
+                        <a href="about-us.html"
+                            class="block text-center text-white font-bold text-lg py-3 rounded-lg bg-white/10 transition">About
+                            Us</a>
+                        <a href="services.html"
+                            class="block text-center text-white font-medium text-lg py-3 rounded-lg hover:bg-white/10 transition">Services</a>
+                        <a href="#"
+                            class="block text-center text-white font-medium text-lg py-3 rounded-lg hover:bg-white/10 transition">Our
+                            Products</a>
+                        <a href="#"
+                            class="block text-center text-white font-medium text-lg py-3 rounded-lg hover:bg-white/10 transition">Our
+                            Work</a>
+                        <a href="#"
+                            class="block text-center text-white font-medium text-lg py-3 rounded-lg hover:bg-white/10 transition">Our
+                            Clients</a>
+                        <a href="contact-us.html"
+                            class="block text-center text-white font-medium text-lg py-3 rounded-lg hover:bg-white/10 transition">Contact
+                            Us</a>
+                        <a href="contact-us.html"
+                            class="block text-center bg-white text-blue-600 font-bold text-lg py-4 rounded-xl mt-6 shadow-lg hover:shadow-xl transform hover:scale-105 transition">
+                            GET A QUOTE
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Header End -->
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        <!-- Hero Section -->
+        <section class="relative py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <div class="inline-block px-4 py-2 mb-4 bg-blue-500/10 rounded-full">
+                        <span class="text-blue-400 font-medium text-sm">About Us</span>
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-bold text-purple-400 mb-6">Our Story</h1>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        At Keypad Systems, we're passionate about creating innovative technology solutions that
+                        transform businesses and empower growth in Kenya and beyond.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section class="relative overflow-hidden bg-white light-theme py-16" id="about">
+            <div class="absolute inset-0 overflow-hidden z-0">
+                <div class="absolute top-[10%] left-[10%] w-80 h-80 rounded-full bg-blue-500/5 filter blur-3xl"></div>
+                <div class="absolute bottom-[10%] right-[10%] w-80 h-80 rounded-full bg-purple-600/5 filter blur-3xl">
+                </div>
+            </div>
+
+            <div class="relative z-10">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+                    <!-- Organization Section -->
+                    <div class="mb-12">
+                        <div class="text-center mb-8">
+                            <div class="inline-block px-4 py-2 mb-4 bg-blue-500/10 backdrop-blur-sm rounded-full">
+                                <span class="text-blue-500 font-medium text-sm">About Us</span>
+                            </div>
+                            <h2 class="text-4xl md:text-5xl font-bold text-purple-600 mb-6">Keypad Solutions LTD</h2>
+                            <p class="text-lg text-primary/80 max-w-2xl mx-auto">We're a team of dedicated professionals
+                                passionate about building innovative tech solutions that help businesses in Kenya thrive
+                                in the digital age.</p>
+                        </div>
+                    </div>
+
+                    <!-- Mission Section -->
+                    <div class="mb-10">
+                        <div class="bg-primary/5 backdrop-blur-sm rounded-xl overflow-hidden border border-primary/10">
+                            <div class="flex border-b border-primary/20">
+                                <button
+                                    class="flex-1 py-3 px-4 text-sm font-medium transition-all duration-300 text-primary/70 hover:text-primary hover:bg-primary/5"
+                                    data-tab="about">
+                                    <div class="flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-info w-4 h-4 mr-2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <path d="M12 16v-4"></path>
+                                            <path d="M12 8h.01"></path>
+                                        </svg>
+                                        About us
+                                    </div>
+                                </button>
+                                <button
+                                    class="flex-1 py-3 px-4 text-sm font-medium transition-all duration-300 text-primary border-b-2 border-purple-600 bg-primary/5"
+                                    data-tab="mission">
+                                    <div class="flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-target w-4 h-4 mr-2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <circle cx="12" cy="12" r="6"></circle>
+                                            <circle cx="12" cy="12" r="2"></circle>
+                                        </svg>
+                                        Our Mission
+                                    </div>
+                                </button>
+                                <button
+                                    class="flex-1 py-3 px-4 text-sm font-medium transition-all duration-300 text-primary/70 hover:text-primary hover:bg-primary/5"
+                                    data-tab="vision">
+                                    <div class="flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-eye w-4 h-4 mr-2">
+                                            <path
+                                                d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0">
+                                            </path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                        Our Vision
+                                    </div>
+                                </button>
+                                <button
+                                    class="flex-1 py-3 px-4 text-sm font-medium transition-all duration-300 text-primary/70 hover:text-primary hover:bg-primary/5"
+                                    data-tab="history">
+                                    <div class="flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-clock w-4 h-4 mr-2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polyline points="12 6 12 12 16 14"></polyline>
+                                        </svg>
+                                        Our History
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="p-6">
+                                <div id="about-content" class="tab-content hidden">
+                                    <h3 class="text-xl font-bold text-purple-600 mb-3 flex items-center">Who We Are</h3>
+                                    <p class="text-primary/80 leading-relaxed mb-5">
+                                        Keypad Systems LTD is an innovative company who deal with technology enhancement
+                                        through
+                                        technology based solutions for over 5 years now. We have a broad perspective of
+                                        working
+                                        with people from different backgrounds and with different needs. Our solutions
+                                        are simple.
+                                        We develop for you application just the way you want. We deliver business value
+                                        to customers
+                                        through a combination of process excellence, quality frameworks and service
+                                        delivery innovation. We are customer based and have an innovative approach to
+                                        each different problem.
+
+
+                                    </p>
+                                    <p class="text-primary/80 leading-relaxed mb-5">Our team combines technical
+                                        excellence with deep industry knowledge to deliver solutions that drive real
+                                        business value. We believe in the power of technology to transform businesses
+                                        and improve lives country wide and beyond.</p>
+                                </div>
+
+                                <div id="mission-content" class="tab-content">
+                                    <h3 class="text-xl font-bold text-purple-600 mb-3 flex items-center">Our Driving
+                                        Purpose</h3>
+                                    <p class="text-primary/80 leading-relaxed mb-5">At Keypad Systems, Our mission is to
+                                        enhance
+                                        invention and innovation to revolutionize IT sector, develop IT products that
+                                        are cost effective and easy to use and to build a mutual relationship among our
+                                        clients</p>
+                                    <p class="text-primary/80 leading-relaxed mb-5">We strive to make advanced
+                                        technology accessible to businesses of all sizes, helping them leverage digital
+                                        tools to improve efficiency, reach new markets, and create sustainable growth.
+                                    </p>
+                                </div>
+
+                                <div id="vision-content" class="tab-content hidden">
+                                    <h3 class="text-xl font-bold text-purple-600 mb-3 flex items-center">Our Vision for
+                                        the Future</h3>
+                                    <p class="text-primary/80 leading-relaxed mb-5">We envision a future where African
+                                        businesses lead in technological innovation, driving economic growth and
+                                        creating opportunities for all. Our goal is to be at the forefront of this
+                                        transformation, providing the tools and expertise needed to turn this vision
+                                        into reality.</p>
+                                    <p class="text-primary/80 leading-relaxed mb-5">By 2030, we aim to have empowered
+                                        over 1,000 businesses country-wide with our cutting-edge technology solutions,
+                                        contributing significantly to the country's digital economy.</p>
+                                </div>
+
+                                <div id="history-content" class="tab-content hidden">
+                                    <h3 class="text-xl font-bold text-purple-600 mb-3 flex items-center">Our Journey
+                                    </h3>
+                                    <p class="text-primary/80 leading-relaxed mb-5">Keypad Solutions LTD was officially
+                                        incorporated on May 30, 2024, bringing together a team of talented directors
+                                        with diverse backgrounds in technology, business, and innovation. Our journey
+                                        began with a shared vision to create a technology company that would make a
+                                        meaningful impact in Kenya's digital landscape.</p>
+                                    <p class="text-primary/80 leading-relaxed mb-5">Since our inception, we've grown
+                                        steadily, expanding our service offerings and building a reputation for quality,
+                                        reliability, and innovation. We're proud of our journey so far and excited about
+                                        the future as we continue to evolve and expand our impact.</p>
+                                </div>
+
+                                <div class="flex justify-end">
+                                    <!-- <button class="btn btn-outline px-4 py-2 text-sm">
+                                    Learn More 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4">
+                                        <path d="M5 12h14"></path>
+                                        <path d="m12 5 7 7-7 7"></path>
+                                    </svg>
+                                </button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats and Timeline Section -->
+                    <div class="grid md:grid-cols-2 gap-6 mb-12">
+                        <!-- Stats Section -->
+                        <div>
+                            <h3 class="text-xl font-bold text-purple-600 mb-4 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-award w-5 h-5 mr-2 text-blue-500">
+                                    <path
+                                        d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526">
+                                    </path>
+                                    <circle cx="12" cy="8" r="6"></circle>
+                                </svg>
+                                Our Achievements
+                            </h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <!-- Stat 1 -->
+                                <div
+                                    class="p-6 text-center hover:bg-primary/5 transition-all duration-300 bg-primary/5 rounded-xl border border-primary/10">
+                                    <div
+                                        class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-500/20 mb-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-users w-6 h-6 text-blue-500">
+                                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="9" cy="7" r="4"></circle>
+                                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="text-3xl font-bold text-purple-600 mb-1">50+</div>
+                                    <div class="text-primary/70">Clients Served</div>
+                                </div>
+
+                                <!-- Stat 2 -->
+                                <div
+                                    class="p-6 text-center hover:bg-primary/5 transition-all duration-300 bg-primary/5 rounded-xl border border-primary/10">
+                                    <div
+                                        class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-500/20 mb-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-calendar w-6 h-6 text-blue-500">
+                                            <path d="M8 2v4"></path>
+                                            <path d="M16 2v4"></path>
+                                            <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                                            <path d="M3 10h18"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="text-3xl font-bold text-purple-600 mb-1">6+</div>
+                                    <div class="text-primary/70">Years Developer Experience</div>
+                                </div>
+
+                                <!-- Stat 3 -->
+                                <div
+                                    class="p-6 text-center hover:bg-primary/5 transition-all duration-300 bg-primary/5 rounded-xl border border-primary/10">
+                                    <div
+                                        class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-500/20 mb-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-award w-6 h-6 text-blue-500">
+                                            <path
+                                                d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526">
+                                            </path>
+                                            <circle cx="12" cy="8" r="6"></circle>
+                                        </svg>
+                                    </div>
+                                    <div class="text-3xl font-bold text-purple-600 mb-1">5</div>
+                                    <div class="text-primary/70">Team Members</div>
+                                </div>
+
+                                <!-- Stat 4 -->
+                                <div
+                                    class="p-6 text-center hover:bg-primary/5 transition-all duration-300 bg-primary/5 rounded-xl border border-primary/10">
+                                    <div
+                                        class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-500/20 mb-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-trending-up w-6 h-6 text-blue-500">
+                                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                                            <polyline points="16 7 22 7 22 13"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="text-3xl font-bold text-purple-600 mb-1">95%</div>
+                                    <div class="text-primary/70">Success Rate</div>
+                                </div>
+                            </div>
+
+                            <!-- Project Highlights -->
+                            <div class="mt-8">
+                                <div class="p-6 bg-primary/5 backdrop-blur-sm rounded-xl border border-primary/10">
+                                    <h4 class="text-lg font-semibold text-primary mb-4">Project Highlights</h4>
+                                    <div class="space-y-4">
+                                        <div class="flex items-start">
+                                            <div class="w-2 h-2 rounded-full bg-purple-600 mt-2 mr-3"></div>
+                                            <div>
+                                                <p class="text-primary font-medium">25+ Completed Projects</p>
+                                                <p class="text-primary/70 text-sm">Spanning various industries and
+                                                    technologies</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <div class="w-2 h-2 rounded-full bg-purple-600 mt-2 mr-3"></div>
+                                            <div>
+                                                <p class="text-primary font-medium">15+ Mobile Applications</p>
+                                                <p class="text-primary/70 text-sm">For both Android and iOS platforms
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <div class="w-2 h-2 rounded-full bg-purple-600 mt-2 mr-3"></div>
+                                            <div>
+                                                <p class="text-primary font-medium">10+ Enterprise Solutions</p>
+                                                <p class="text-primary/70 text-sm">Customized for specific business
+                                                    needs</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Section -->
+                        <div>
+                            <h3 class="text-xl font-bold text-purple-600 mb-4 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-clock w-5 h-5 mr-2 text-blue-500">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                Our Journey
+                            </h3>
+                            <div
+                                class="p-5 h-[calc(100%-2rem)] bg-primary/5 backdrop-blur-sm rounded-xl border border-primary/10">
+                                <div class="space-y-0 overflow-y-auto pr-2 custom-scrollbar">
+                                    <!-- Timeline Item 1 -->
+                                    <div class="relative pl-8 pb-8 group">
+                                        <div class="absolute left-0 top-0 w-px h-full bg-primary/20 group-last:h-8">
+                                        </div>
+                                        <div
+                                            class="absolute left-0 top-0 w-px h-full bg-purple-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
+                                        </div>
+                                        <div
+                                            class="absolute left-0 top-0 w-2 h-2 rounded-full bg-primary/30 -translate-x-[3px] group-hover:bg-purple-600 transition-colors duration-300">
+                                        </div>
+                                        <div class="mb-2 text-purple-600 font-medium flex items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-calendar w-3 h-3 mr-2 text-purple-600">
+                                                <path d="M8 2v4"></path>
+                                                <path d="M16 2v4"></path>
+                                                <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                                                <path d="M3 10h18"></path>
+                                            </svg>
+                                            May 2024
+                                        </div>
+                                        <h3 class="text-primary text-lg font-semibold mb-2">Keypad Formation</h3>
+                                        <p class="text-primary/70">Officially incorporated as Keypad Solutions LTD on
+                                            May 30, 2024, trading as Keypad, bringing together a team of talented
+                                            directors.</p>
+                                    </div>
+
+                                    <!-- Timeline Item 2 -->
+                                    <div class="relative pl-8 pb-8 group">
+                                        <div class="absolute left-0 top-0 w-px h-full bg-primary/20 group-last:h-8">
+                                        </div>
+                                        <div
+                                            class="absolute left-0 top-0 w-px h-full bg-purple-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
+                                        </div>
+                                        <div
+                                            class="absolute left-0 top-0 w-2 h-2 rounded-full bg-primary/30 -translate-x-[3px] group-hover:bg-purple-600 transition-colors duration-300">
+                                        </div>
+                                        <div class="mb-2 text-purple-600 font-medium flex items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-calendar w-3 h-3 mr-2 text-purple-600">
+                                                <path d="M8 2v4"></path>
+                                                <path d="M16 2v4"></path>
+                                                <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                                                <path d="M3 10h18"></path>
+                                            </svg>
+                                            June 2024
+                                        </div>
+                                        <h3 class="text-primary text-lg font-semibold mb-2">Team Expansion</h3>
+                                        <p class="text-primary/70">Strengthened the team with key directors, focusing on
+                                            expanding operations and further solidifying the company's market presence.
+                                        </p>
+                                    </div>
+
+                                    <!-- Timeline Item 3 -->
+                                    <div class="relative pl-8 pb-8 group">
+                                        <div class="absolute left-0 top-0 w-px h-full bg-primary/20 group-last:h-8">
+                                        </div>
+                                        <div
+                                            class="absolute left-0 top-0 w-px h-full bg-purple-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
+                                        </div>
+                                        <div
+                                            class="absolute left-0 top-0 w-2 h-2 rounded-full bg-primary/30 -translate-x-[3px] group-hover:bg-purple-600 transition-colors duration-300">
+                                        </div>
+                                        <div class="mb-2 text-purple-600 font-medium flex items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-calendar w-3 h-3 mr-2 text-purple-600">
+                                                <path d="M8 2v4"></path>
+                                                <path d="M16 2v4"></path>
+                                                <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                                                <path d="M3 10h18"></path>
+                                            </svg>
+                                            January 2025
+                                        </div>
+                                        <h3 class="text-primary text-lg font-semibold mb-2">Diversification and Scaling
+                                        </h3>
+                                        <p class="text-primary/70">Keypad Solutions LTD started scaling its operations
+                                            and diversifying into new markets, with increased focus on AI-driven
+                                            projects and solutions.</p>
+                                    </div>
+
+                                    <!-- Timeline Item 4 -->
+                                    <div class="relative pl-8 pb-8 group">
+                                        <div class="absolute left-0 top-0 w-px h-full bg-primary/20 group-last:h-8">
+                                        </div>
+                                        <div
+                                            class="absolute left-0 top-0 w-px h-full bg-purple-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
+                                        </div>
+                                        <div
+                                            class="absolute left-0 top-0 w-2 h-2 rounded-full bg-primary/30 -translate-x-[3px] group-hover:bg-purple-600 transition-colors duration-300">
+                                        </div>
+                                        <div class="mb-2 text-purple-600 font-medium flex items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-calendar w-3 h-3 mr-2 text-purple-600">
+                                                <path d="M8 2v4"></path>
+                                                <path d="M16 2v4"></path>
+                                                <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                                                <path d="M3 10h18"></path>
+                                            </svg>
+                                            March 2025
+                                        </div>
+                                        <h3 class="text-primary text-lg font-semibold mb-2">Strategic Partnerships</h3>
+                                        <p class="text-primary/70">Formed strategic partnerships to accelerate growth
+                                            and innovation, aiming to provide cutting-edge technological solutions to a
+                                            global audience.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Partners Section -->
+        <section class="py-16 bg-white light-theme">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <div class="inline-block px-4 py-2 bg-blue-500/20 backdrop-blur-lg rounded-full mb-4">
+                        <span class="text-blue-600 font-medium text-sm">Our Partners</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-purple-600 mb-6">Trusted Partners</h2>
+                    <p class="text-lg text-gray-700 max-w-2xl mx-auto">We collaborate with industry leaders and
+                        innovative companies to deliver exceptional technology solutions.</p>
+                </div>
+
+                <!-- Partners Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
+                    <!-- Partner 1 -->
+                    <div
+                        class="bg-gray-50 p-6 rounded-xl text-center hover:transform hover:scale-110 transition-all duration-300 flex items-center justify-center h-32 border border-gray-200 hover:border-blue-300 hover:shadow-lg">
+                        <img src="assets/images/partners/partner-1.png" alt="Partner 1"
+                            class="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity">
+                    </div>
+
+                    <!-- Partner 2 -->
+                    <div
+                        class="bg-gray-50 p-6 rounded-xl text-center hover:transform hover:scale-110 transition-all duration-300 flex items-center justify-center h-32 border border-gray-200 hover:border-blue-300 hover:shadow-lg">
+                        <img src="assets/images/partners/partner-2.png" alt="Partner 2"
+                            class="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity">
+                    </div>
+
+                    <!-- Partner 3 -->
+                    <div
+                        class="bg-gray-50 p-6 rounded-xl text-center hover:transform hover:scale-110 transition-all duration-300 flex items-center justify-center h-32 border border-gray-200 hover:border-blue-300 hover:shadow-lg">
+                        <img src="assets/images/partners/partner-3.png" alt="Partner 3"
+                            class="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity">
+                    </div>
+
+                    <!-- Partner 4 -->
+                    <div
+                        class="bg-gray-50 p-6 rounded-xl text-center hover:transform hover:scale-110 transition-all duration-300 flex items-center justify-center h-32 border border-gray-200 hover:border-blue-300 hover:shadow-lg">
+                        <img src="assets/images/partners/partner-4.png" alt="Partner 4"
+                            class="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity">
+                    </div>
+
+                    <!-- Partner 5 -->
+                    <div
+                        class="bg-gray-50 p-6 rounded-xl text-center hover:transform hover:scale-110 transition-all duration-300 flex items-center justify-center h-32 border border-gray-200 hover:border-blue-300 hover:shadow-lg">
+                        <img src="assets/images/partners/partner-5.png" alt="Partner 5"
+                            class="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity">
+                    </div>
+
+                    <!-- Partner 6 -->
+                    <div
+                        class="bg-gray-50 p-6 rounded-xl text-center hover:transform hover:scale-110 transition-all duration-300 flex items-center justify-center h-32 border border-gray-200 hover:border-blue-300 hover:shadow-lg">
+                        <img src="assets/images/partners/partner-6.png" alt="Partner 6"
+                            class="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+
+                <!-- Partners Description -->
+                <div class="mt-12 text-center">
+                    <div class="bg-gray-50 p-8 rounded-xl border border-gray-200">
+                        <h3 class="text-2xl font-bold text-purple-600 mb-4">Strategic Collaborations</h3>
+                        <p class="text-gray-700 mb-6 max-w-3xl mx-auto">
+                            Our partnerships with leading technology companies and industry experts enable us to deliver
+                            cutting-edge solutions,
+                            access the latest innovations, and provide comprehensive Our Services that drive digital
+                            transformation for our clients.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                            <div class="text-center">
+                                <div
+                                    class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-handshake text-blue-600">
+                                        <path d="m11 17 2 2a1 1 0 1 0 3-3" />
+                                        <path
+                                            d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
+                                        <path d="m21 3 1 11h-2" />
+                                        <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
+                                        <path d="M3 4h8" />
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Strategic Alliances</h4>
+                                <p class="text-gray-600 text-sm">Long-term partnerships with industry leaders</p>
+                            </div>
+                            <div class="text-center">
+                                <div
+                                    class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-zap text-purple-600">
+                                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Technology Innovation</h4>
+                                <p class="text-gray-600 text-sm">Access to cutting-edge tools and platforms</p>
+                            </div>
+                            <div class="text-center">
+                                <div
+                                    class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-users text-blue-600">
+                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                        <circle cx="9" cy="7" r="4" />
+                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Expert Collaboration</h4>
+                                <p class="text-gray-600 text-sm">Joint expertise for complex projects</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <div
+                        class="inline-block p-8 bg-gradient-to-r from-blue-500/20 to-purple-600/20 backdrop-blur-lg rounded-xl border border-white/10">
+                        <h3 class="text-2xl font-bold text-white mb-4">Ready to Work With Us?</h3>
+                        <p class="text-gray-300 mb-6 max-w-2xl mx-auto">Let's discuss how we can help transform your
+                            business with innovative technology solutions.</p>
+                        <div class="flex flex-col sm:flex-row justify-center gap-4">
+                            <button class="btn btn-primary px-8 py-3">
+                                <a href="contact-us.html">Get In Touch</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 ml-2">
+                                    <path d="M5 12h14"></path>
+                                    <path d="m12 5 7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <button class="btn btn-outline px-8 py-3">
+                                <a href="services.html">View Our Services</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="bottom_footer w-full">
+            <div
+                class="container mx-auto px-4 flex flex-col sm:flex-row flex-col justify-between items-center text-sm gap-4">
+                <p>Copyright © Keypad Systems <span id="currentYear">2025</span>. All rights reserved.</p>
+                <p>Powered By: Keypad Systems</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Footer Section -->
+    <!-- <footer class="bottom_footer w-full">
+    <div class="container mx-auto px-4 flex flex-col sm:flex-row flex-col justify-between items-center text-sm gap-4">
+        <p>Copyright © Keypad Systems <span id="currentYear">2025</span>. All rights reserved.</p>
+        <p>Powered By: Keypad Systems</p>
+    </div>
+</footer> -->
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.lucide && typeof lucide.createIcons === 'function') {
+                try { lucide.createIcons(); } catch (e) { console.warn('lucide.createIcons() failed:', e); }
+            }
+
+            // Mobile menu toggle (safe guards)
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function () {
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    if (mobileMenu) mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('#mobileMenu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    if (mobileMenu) mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Tab functionality
+            const tabs = document.querySelectorAll('[data-tab]');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    const tabId = this.getAttribute('data-tab');
+
+                    // Remove active state from all tabs
+                    tabs.forEach(t => {
+                        t.classList.remove('border-b-2', 'border-purple-600', 'bg-primary/5', 'text-primary');
+                        t.classList.add('text-primary/70');
+                    });
+
+                    // Add active state to clicked tab
+                    this.classList.add('border-b-2', 'border-purple-600', 'bg-primary/5', 'text-primary');
+                    this.classList.remove('text-primary/70');
+
+                    // Hide all tab contents
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+
+                    // Show selected tab content
+                    const selected = document.getElementById(`${tabId}-content`);
+                    if (selected) selected.classList.remove('hidden');
+                });
+            });
+
+            // Scroll-based background image effect
+            const scrollBg = document.getElementById('scrollBg');
+            if (scrollBg) {
+                window.addEventListener('scroll', function () {
+                    const scrollPosition = window.scrollY;
+                    const windowHeight = window.innerHeight;
+
+                    let opacity = 1 - (scrollPosition / (windowHeight * 0.8));
+                    opacity = Math.max(0, Math.min(1, opacity));
+                    scrollBg.style.opacity = opacity;
+                });
+            }
+
+            // Auto-update copyright year
+            const yearEl = document.getElementById('currentYear');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+            // Initialize with mission tab active (if present)
+            const missionTab = document.querySelector('[data-tab="mission"]');
+            if (missionTab) missionTab.click();
+        });
+    </script>
+
+</body>
+
+</html>

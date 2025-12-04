@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>Keypad Systems - Smart Software Solutions for Businesses</title>
+
+    <!-- Local Bootstrap CSS -->
+    <link href="http://127.0.0.1:5501/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Add Bootstrap Icons CDN here -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+    <!-- Local Bootstrap JS -->
+    <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js" defer></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Custom Brand Colors -->
+    <style>
+        :root {
+            --brand-primary: #A1D044;
+            --brand-primary-dark: #7BA730;
+            --brand-gray: #B6B6B6;
+            --brand-white: #FFFFFF;
+            --brand-dark: #1F2937;
+            --brand-light: #F9FAFB;
+        }
+        
+        /* Custom styles using brand colors */
+        .text-brand-primary {
+            color: var(--brand-primary);
+        }
+        
+        .text-brand-primary-dark {
+            color: var(--brand-primary-dark);
+        }
+        
+        .text-brand-gray {
+            color: var(--brand-gray);
+        }
+        
+        .bg-brand-primary {
+            background-color: var(--brand-primary);
+        }
+        
+        .bg-brand-primary-dark {
+            background-color: var(--brand-primary-dark);
+        }
+        
+        .bg-brand-dark {
+            background-color: var(--brand-dark);
+        }
+        
+        .border-brand-primary {
+            border-color: var(--brand-primary);
+        }
+        
+        /* Gradient backgrounds */
+        .bg-gradient-brand {
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-primary-dark));
+        }
+        
+        .bg-gradient-brand-reverse {
+            background: linear-gradient(135deg, var(--brand-primary-dark), var(--brand-primary));
+        }
+        
+        /* Button styles */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-primary-dark));
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(161, 208, 68, 0.4);
+            background: linear-gradient(135deg, var(--brand-primary-dark), var(--brand-primary));
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--brand-primary);
+            color: var(--brand-primary);
+            background: transparent;
+        }
+        
+        .btn-outline:hover {
+            background: var(--brand-primary);
+            color: white;
+        }
+        
+        /* Hero section */
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/images/header-1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Service cards */
+        .service-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(161, 208, 68, 0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--brand-primary);
+            box-shadow: 0 20px 40px rgba(161, 208, 68, 0.15);
+        }
+        
+        /* Product cards */
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        /* Navigation */
+        .navbar-custom {
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-primary-dark));
+        }
+        
+        .navbar-custom .nav-link {
+            color: white !important;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+        }
+        
+        /* Testimonial cards */
+        .testimonial-card {
+            background: white;
+            border-left: 4px solid var(--brand-primary);
+        }
+        
+        /* Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Section spacing */
+        section {
+            padding: 80px 0;
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-primary': '#A1D044',
+                        'brand-primary-dark': '#7BA730',
+                        'brand-gray': '#B6B6B6',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 font-sans">
+    <!-- Header Section -->
+    <header class="sticky top-0 z-50 shadow-lg">
+        <!-- Top Bar -->
+        <div class="bg-gray-900 text-white py-2">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-sm mb-2 md:mb-0">
+                        <i class="bi bi-geo-alt mr-2"></i>Nairobi, Kenya
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <a href="tel:+254113426561" class="text-sm hover:text-brand-primary transition">
+                            <i class="bi bi-telephone mr-1"></i> +254 113 426 561
+                        </a>
+                        <div class="h-4 w-px bg-gray-600"></div>
+                        <a href="mailto:info@keypadsystems.co.ke" class="text-sm hover:text-brand-primary transition">
+                            <i class="bi bi-envelope mr-1"></i> info@keypadsystems.co.ke
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="navbar-custom">
+            <div class="container mx-auto px-4">
+                <div class="flex items-center justify-between h-20">
+                    <!-- Logo -->
+                    <div class="flex items-center">
+                        <a href="/" class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+                                <div class="w-10 h-10 bg-brand-primary rounded"></div>
+                            </div>
+                            <div>
+                                <h1 class="text-white text-xl font-bold">Keypad Systems</h1>
+                                <p class="text-white/80 text-xs">Smart Software Solutions</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Desktop Menu -->
+                    <div class="hidden lg:flex items-center space-x-1">
+                        <a href="#" class="nav-link px-4 py-2 active">Home</a>
+                        <a href="#about" class="nav-link px-4 py-2">About</a>
+                        <a href="#services" class="nav-link px-4 py-2">Services</a>
+                        <a href="#products" class="nav-link px-4 py-2">Products</a>
+                        <a href="#portfolio" class="nav-link px-4 py-2">Portfolio</a>
+                        <a href="#clients" class="nav-link px-4 py-2">Clients</a>
+                        <a href="#contact" class="nav-link px-4 py-2">Contact</a>
+                        <a href="#contact" class="ml-4 btn-primary px-6 py-2 rounded-lg font-semibold">
+                            Request Demo
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="lg:hidden text-white text-2xl">
+                        <i class="bi bi-list"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div id="mobileMenu" class="lg:hidden hidden bg-white rounded-lg mt-2 shadow-xl">
+                    <div class="py-4">
+                        <a href="#" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 active">Home</a>
+                        <a href="#about" class="block px-4 py-3 text-gray-800 hover:bg-gray-100">About</a>
+                        <a href="#services" class="block px-4 py-3 text-gray-800 hover:bg-gray-100">Services</a>
+                        <a href="#products" class="block px-4 py-3 text-gray-800 hover:bg-gray-100">Products</a>
+                        <a href="#portfolio" class="block px-4 py-3 text-gray-800 hover:bg-gray-100">Portfolio</a>
+                        <a href="#clients" class="block px-4 py-3 text-gray-800 hover:bg-gray-100">Clients</a>
+                        <a href="#contact" class="block px-4 py-3 text-gray-800 hover:bg-gray-100">Contact</a>
+                        <a href="#contact" class="block mx-4 mt-4 btn-primary px-6 py-3 rounded-lg font-semibold text-center">
+                            Request Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 w-fit">
+                        <span class="w-2 h-2 bg-brand-primary rounded-full"></span>
+                        <span class="text-sm">Trusted by 100+ Businesses in Kenya</span>
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                        Smart Software Solutions for 
+                        <span class="text-brand-primary">Growing</span> 
+                        Businesses
+                    </h1>
+                    
+                    <p class="text-xl text-gray-300">
+                        Custom software development, mobile apps, AI solutions, and digital transformation services tailored for Kenyan businesses.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="#contact" class="btn-primary px-8 py-4 rounded-lg text-lg font-semibold inline-flex items-center justify-center">
+                            Start Your Project
+                            <i class="bi bi-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#services" class="btn-outline px-8 py-4 rounded-lg text-lg font-semibold inline-flex items-center justify-center">
+                            View Our Services
+                            <i class="bi bi-eye ml-2"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center space-x-8 pt-8">
+                        <div>
+                            <div class="text-3xl font-bold text-brand-primary">7+</div>
+                            <div class="text-gray-400">Years Experience</div>
+                        </div>
+                        <div class="h-12 w-px bg-gray-600"></div>
+                        <div>
+                            <div class="text-3xl font-bold text-brand-primary">100+</div>
+                            <div class="text-gray-400">Projects Delivered</div>
+                        </div>
+                        <div class="h-12 w-px bg-gray-600"></div>
+                        <div>
+                            <div class="text-3xl font-bold text-brand-primary">98%</div>
+                            <div class="text-gray-400">Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="bg-gradient-brand p-8 rounded-2xl shadow-2xl">
+                        <div class="bg-white rounded-xl p-6 space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-brand-primary/10 rounded-lg flex items-center justify-center">
+                                    <i class="bi bi-code-slash text-2xl text-brand-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Custom Software</h3>
+                                    <p class="text-gray-600 text-sm">Tailored solutions for your unique needs</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-brand-primary/10 rounded-lg flex items-center justify-center">
+                                    <i class="bi bi-phone text-2xl text-brand-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Mobile Apps</h3>
+                                    <p class="text-gray-600 text-sm">iOS & Android development</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-brand-primary/10 rounded-lg flex items-center justify-center">
+                                    <i class="bi bi-cpu text-2xl text-brand-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-800">AI & Automation</h3>
+                                    <p class="text-gray-600 text-sm">Smart business solutions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="inline-flex items-center space-x-2">
+                        <span class="w-12 h-1 bg-brand-primary rounded-full"></span>
+                        <span class="text-brand-primary-dark font-semibold">ABOUT US</span>
+                    </div>
+                    
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900">
+                        We Build Technology That Drives 
+                        <span class="text-brand-primary">Business Growth</span>
+                    </h2>
+                    
+                    <p class="text-lg text-gray-600">
+                        At Keypad Systems, we're more than just developers—we're your technology partners. With over 7 years of experience serving Kenyan businesses, we understand the unique challenges and opportunities in the local market.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-6 h-6 bg-brand-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="bi bi-check-lg text-brand-primary text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Industry Expertise</h4>
+                                <p class="text-gray-600">Deep understanding of Kenyan business ecosystems</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-6 h-6 bg-brand-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="bi bi-check-lg text-brand-primary text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Quality Assurance</h4>
+                                <p class="text-gray-600">Rigorous testing for reliable, scalable solutions</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-6 h-6 bg-brand-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="bi bi-check-lg text-brand-primary text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Ongoing Support</h4>
+                                <p class="text-gray-600">Continuous maintenance and updates</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="relative z-10 bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+                        <div class="aspect-video rounded-lg overflow-hidden mb-6">
+                            <div class="w-full h-full bg-gradient-brand flex items-center justify-center">
+                                <i class="bi bi-play-circle text-white text-6xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
+                        <p class="text-gray-600 mb-6">
+                            To empower Kenyan businesses with accessible, innovative technology solutions that solve real-world problems and drive sustainable growth.
+                        </p>
+                        <a href="#contact" class="inline-flex items-center text-brand-primary font-semibold">
+                            Learn More About Us
+                            <i class="bi bi-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-64 h-64 bg-brand-primary/10 rounded-full -z-10 animate-float"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center space-x-2 mb-4">
+                    <span class="w-12 h-1 bg-brand-primary rounded-full"></span>
+                    <span class="text-brand-primary-dark font-semibold">OUR SERVICES</span>
+                    <span class="w-12 h-1 bg-brand-primary rounded-full"></span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Comprehensive Technology Solutions
+                </h2>
+                <p class="text-xl text-gray-600">
+                    We offer end-to-end software development services tailored to your business requirements.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="bi bi-phone text-3xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Mobile App Development</h3>
+                    <p class="text-gray-600 mb-6">
+                        Native iOS and Android applications built with modern frameworks, delivering exceptional user experiences.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle-fill text-brand-primary mr-3"></i>
+                            <span>iOS & Android Native Apps</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle-fill text-brand-primary mr-3"></i>
+                            <span>Cross-Platform Solutions</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle-fill text-brand-primary mr-3"></i>
+                            <span>App Store Optimization</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-brand-primary font-semibold">
+                        Learn More
+                        <i class="bi bi-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="bi bi-code-slash text-3xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Custom Software Development</h3>
+                    <p class="text-gray-600 mb-6">
+                        Bespoke software solutions designed specifically for your business processes and workflow requirements.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle-fill text-brand-primary mr-3"></i>
+                            <span>Web Applications</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle-fill text-brand-primary mr-3"></i>
+                            <span>Desktop Software</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle-fill text-brand-primary mr-3"></i>
+                            <span>API Development</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-brand-primary font-semibold">
+                        Learn More
+                        <i class="bi bi-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="bi bi-cpu text-3xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">AI & Machine Learning</h3>
+                    <p class="text-gray-600 mb-6">
+                        Intelligent automation and predictive analytics solutions that transform your business operations.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle-fill text-brand-primary mr-3"></i>
+                            <span>Predictive Analytics</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle-fill text-brand-primary mr-3"></i>
+                            <span>Natural Language Processing</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle-fill text-brand-primary mr-3"></i>
+                            <span>Computer Vision</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-brand-primary font-semibold">
+                        Learn More
+                        <i class="bi bi-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="bi bi-globe text-3xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Web Development</h3>
+                    <p class="text-gray-600 mb-6">
+                        Responsive, high-performance websites and web applications that drive engagement and conversions.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle-fill text-brand-primary mr-3"></i>
+                            <span>E-commerce Solutions</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle-fill text-brand-primary mr-3"></i>
+                            <span>Progressive Web Apps</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle-fill text-brand-primary mr-3"></i>
+                            <span>SEO Optimization</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-brand-primary font-semibold">
+                        Learn More
+                        <i class="bi bi-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="bi bi-database text-3xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Database Solutions</h3>
+                    <p class="text-gray-600 mb-6">
+                        Robust database design, management, and optimization for reliable data storage and retrieval.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle-fill text-brand-primary mr-3"></i>
+                            <span>Database Design</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle-fill text-brand-primary mr-3"></i>
+                            <span>Data Migration</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle-fill text-brand-primary mr-3"></i>
+                            <span>Performance Optimization</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-brand-primary font-semibold">
+                        Learn More
+                        <i class="bi bi-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="bi bi-headset text-3xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Support & Maintenance</h3>
+                    <p class="text-gray-600 mb-6">
+                        Ongoing technical support, updates, and maintenance to ensure your systems run smoothly.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle-fill text-brand-primary mr-3"></i>
+                            <span>24/7 Technical Support</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle-fill text-brand-primary mr-3"></i>
+                            <span>Regular Updates</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle-fill text-brand-primary mr-3"></i>
+                            <span>Security Patches</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-brand-primary font-semibold">
+                        Learn More
+                        <i class="bi bi-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="#contact" class="btn-primary px-8 py-4 rounded-lg text-lg font-semibold inline-flex items-center">
+                    Get Custom Solution
+                    <i class="bi bi-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center space-x-2 mb-4">
+                    <span class="w-12 h-1 bg-brand-primary rounded-full"></span>
+                    <span class="text-brand-primary-dark font-semibold">OUR PRODUCTS</span>
+                    <span class="w-12 h-1 bg-brand-primary rounded-full"></span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Ready-to-Use Solutions
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Explore our range of pre-built products designed for specific business needs.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card group">
+                    <div class="h-48 bg-gradient-brand flex items-center justify-center">
+                        <i class="bi bi-buildings text-white text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Business ERP</h3>
+                        <p class="text-gray-600 mb-4">
+                            Comprehensive enterprise resource planning system for SMEs.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-brand-primary font-bold">From KES 50,000</span>
+                            <a href="#" class="text-gray-400 group-hover:text-brand-primary transition">
+                                <i class="bi bi-arrow-right text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card group">
+                    <div class="h-48 bg-gradient-brand-reverse flex items-center justify-center">
+                        <i class="bi bi-cart text-white text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">E-commerce Platform</h3>
+                        <p class="text-gray-600 mb-4">
+                            Full-featured online store with payment integration.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-brand-primary font-bold">From KES 35,000</span>
+                            <a href="#" class="text-gray-400 group-hover:text-brand-primary transition">
+                                <i class="bi bi-arrow-right text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card group">
+                    <div class="h-48 bg-gradient-brand flex items-center justify-center">
+                        <i class="bi bi-mortarboard text-white text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">School Management</h3>
+                        <p class="text-gray-600 mb-4">
+                            Complete system for educational institutions.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-brand-primary font-bold">From KES 40,000</span>
+                            <a href="#" class="text-gray-400 group-hover:text-brand-primary transition">
+                                <i class="bi bi-arrow-right text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card group">
+                    <div class="h-48 bg-gradient-brand-reverse flex items-center justify-center">
+                        <i class="bi bi-heart-pulse text-white text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Hospital Management</h3>
+                        <p class="text-gray-600 mb-4">
+                            Healthcare management system for clinics and hospitals.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-brand-primary font-bold">From KES 75,000</span>
+                            <a href="#" class="text-gray-400 group-hover:text-brand-primary transition">
+                                <i class="bi bi-arrow-right text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="#contact" class="btn-outline px-8 py-4 rounded-lg text-lg font-semibold inline-flex items-center">
+                    View All Products
+                    <i class="bi bi-grid-3x3-gap ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center space-x-2 mb-4">
+                    <span class="w-12 h-1 bg-brand-primary rounded-full"></span>
+                    <span class="text-brand-primary-dark font-semibold">OUR WORK</span>
+                    <span class="w-12 h-1 bg-brand-primary rounded-full"></span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Featured Projects
+                </h2>
+                <p class="text-xl text-gray-600">
+                    See how we've helped businesses transform with our technology solutions.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-64 bg-gradient-brand relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="bi bi-bag-check text-white text-6xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="px-3 py-1 bg-brand-primary/10 text-brand-primary rounded-full text-sm font-medium">
+                                E-commerce
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Online Retail Platform</h3>
+                        <p class="text-gray-600 mb-4">
+                            Complete e-commerce solution with inventory management, payment integration, and analytics.
+                        </p>
+                        <a href="#" class="inline-flex items-center text-brand-primary font-semibold">
+                            View Case Study
+                            <i class="bi bi-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-64 bg-gradient-brand-reverse relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="bi bi-mortarboard text-white text-6xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="px-3 py-1 bg-brand-primary/10 text-brand-primary rounded-full text-sm font-medium">
+                                Education
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">School Management System</h3>
+                        <p class="text-gray-600 mb-4">
+                            Comprehensive system for student management, fees collection, and academic reporting.
+                        </p>
+                        <a href="#" class="inline-flex items-center text-brand-primary font-semibold">
+                            View Case Study
+                            <i class="bi bi-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-64 bg-gradient-brand relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="bi bi-hospital text-white text-6xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="px-3 py-1 bg-brand-primary/10 text-brand-primary rounded-full text-sm font-medium">
+                                Healthcare
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Clinic Management Software</h3>
+                        <p class="text-gray-600 mb-4">
+                            Patient management, appointment scheduling, and billing system for healthcare facilities.
+                        </p>
+                        <a href="#" class="inline-flex items-center text-brand-primary font-semibold">
+                            View Case Study
+                            <i class="bi bi-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="#" class="btn-primary px-8 py-4 rounded-lg text-lg font-semibold inline-flex items-center">
+                    View All Projects
+                    <i class="bi bi-collection ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center space-x-2 mb-4">
+                    <span class="w-12 h-1 bg-brand-primary rounded-full"></span>
+                    <span class="text-brand-primary-dark font-semibold">OUR CLIENTS</span>
+                    <span class="w-12 h-1 bg-brand-primary rounded-full"></span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Trusted by Industry Leaders
+                </h2>
+                <p class="text-xl text-gray-600">
+                    We're proud to partner with businesses across various sectors in Kenya.
+                </p>
+            </div>
+            
+            <!-- Client Logos -->
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center mb-16">
+                <div class="h-20 bg-gray-100 rounded-xl flex items-center justify-center">
+                    <div class="text-gray-400 font-bold text-xl">Client 1</div>
+                </div>
+                <div class="h-20 bg-gray-100 rounded-xl flex items-center justify-center">
+                    <div class="text-gray-400 font-bold text-xl">Client 2</div>
+                </div>
+                <div class="h-20 bg-gray-100 rounded-xl flex items-center justify-center">
+                    <div class="text-gray-400 font-bold text-xl">Client 3</div>
+                </div>
+                <div class="h-20 bg-gray-100 rounded-xl flex items-center justify-center">
+                    <div class="text-gray-400 font-bold text-xl">Client 4</div>
+                </div>
+                <div class="h-20 bg-gray-100 rounded-xl flex items-center justify-center">
+                    <div class="text-gray-400 font-bold text-xl">Client 5</div>
+                </div>
+                <div class="h-20 bg-gray-100 rounded-xl flex items-center justify-center">
+                    <div class="text-gray-400 font-bold text-xl">Client 6</div>
+                </div>
+            </div>
+            
+            <!-- Testimonials -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="testimonial-card p-6 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-brand rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            JM
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">John Mwangi</h4>
+                            <p class="text-gray-600 text-sm">CEO, Retail Solutions Ltd</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">
+                        "Keypad Systems transformed our inventory management. Their custom solution increased our efficiency by 40%."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-6 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-brand rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            SN
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Sarah Njoroge</h4>
+                            <p class="text-gray-600 text-sm">Director, Green Valley School</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">
+                        "The school management system has revolutionized how we handle admissions, fees, and academic records."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-6 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-brand rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            DK
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">David Kariuki</h4>
+                            <p class="text-gray-600 text-sm">Manager, Urban Clinic</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">
+                        "Excellent support and robust software. Our clinic operations are now seamless and efficient."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center space-x-2 mb-4">
+                    <span class="w-12 h-1 bg-brand-primary rounded-full"></span>
+                    <span class="text-brand-primary-dark font-semibold">WHY CHOOSE US</span>
+                    <span class="w-12 h-1 bg-brand-primary rounded-full"></span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    The Keypad Advantage
+                </h2>
+                <p class="text-xl text-gray-600">
+                    What sets us apart in the competitive software development landscape.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-gradient-brand rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="bi bi-award text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">7+ Years Experience</h3>
+                    <p class="text-gray-600">
+                        Proven track record delivering successful projects across industries.
+                    </p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-gradient-brand rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="bi bi-people text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Expert Team</h3>
+                    <p class="text-gray-600">
+                        Skilled developers, designers, and project managers.
+                    </p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-gradient-brand rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="bi bi-shield-check text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Quality Assurance</h3>
+                    <p class="text-gray-600">
+                        Rigorous testing for reliable, bug-free software.
+                    </p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-gradient-brand rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="bi bi-headset text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Ongoing Support</h3>
+                    <p class="text-gray-600">
+                        Continuous maintenance and technical support.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="contact" class="py-20 bg-gradient-brand text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Ready to Transform Your Business?
+                </h2>
+                <p class="text-xl mb-10 opacity-90">
+                    Let's discuss your project and create a custom solution that drives your business forward.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl">
+                        <i class="bi bi-calendar-check text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Book a Meeting</h3>
+                        <p class="opacity-90">Schedule a free consultation</p>
+                    </div>
+                    
+                    <div class="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl">
+                        <i class="bi bi-chat-dots text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Get a Quote</h3>
+                        <p class="opacity-90">Receive a detailed proposal</p>
+                    </div>
+                    
+                    <div class="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl">
+                        <i class="bi bi-phone text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Call Us Now</h3>
+                        <p class="opacity-90">+254 113 426 561</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="mailto:info@keypadsystems.co.ke" 
+                       class="bg-white text-brand-primary-dark px-8 py-4 rounded-lg text-lg font-semibold inline-flex items-center justify-center hover:bg-gray-100 transition">
+                        <i class="bi bi-envelope mr-2"></i>
+                        Email Us
+                    </a>
+                    <a href="tel:+254113426561" 
+                       class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold inline-flex items-center justify-center hover:bg-white/10 transition">
+                        <i class="bi bi-telephone mr-2"></i>
+                        Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-brand-primary rounded"></div>
+                        <div>
+                            <h3 class="text-xl font-bold">Keypad Systems</h3>
+                            <p class="text-gray-400 text-sm">Smart Software Solutions</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Transforming businesses through innovative technology solutions in Kenya.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-brand-primary transition">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-brand-primary transition">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-brand-primary transition">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-brand-primary transition">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white transition">Products</a></li>
+                        <li><a href="#portfolio" class="text-gray-400 hover:text-white transition">Portfolio</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Mobile App Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Custom Software</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Web Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">AI Solutions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Support & Maintenance</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contact Info</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-center">
+                            <i class="bi bi-geo-alt text-brand-primary mr-3"></i>
+                            <span class="text-gray-400">Nairobi, Kenya</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-telephone text-brand-primary mr-3"></i>
+                            <a href="tel:+254113426561" class="text-gray-400 hover:text-white transition">
+                                +254 113 426 561
+                            </a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-envelope text-brand-primary mr-3"></i>
+                            <a href="mailto:info@keypadsystems.co.ke" class="text-gray-400 hover:text-white transition">
+                                info@keypadsystems.co.ke
+                            </a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-clock text-brand-primary mr-3"></i>
+                            <span class="text-gray-400">Mon - Fri: 8:00 - 17:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Keypad Systems. All rights reserved.</p>
+                <p class="mt-2 text-sm">Smart software solutions for Kenyan businesses</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            
+            if (!mobileMenu.contains(event.target) && !menuBtn.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add active class to current section in navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
