@@ -6,7 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>About Us - Keypad Systems</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Learn about Keypad Systems Kenya - A leading software development company in Nairobi with 6+ years experience, 50+ clients served, and expert IT solutions.">
+    <meta name="keywords"
+        content="about Keypad Systems Kenya, software development company Nairobi, IT company Kenya, technology solutions Nairobi, software developers Kenya">
+    <meta name="author" content="Keypad Systems">
 
+    <!-- Open Graph for Social Media -->
+    <meta property="og:title" content="About Keypad Systems - Leading Software Developers in Nairobi, Kenya">
+    <meta property="og:description"
+        content="Discover our mission, vision, and journey as Kenya's premier software development company with 6+ years experience and 50+ clients served.">
+    <meta property="og:image"
+        content="https://stevovenom.github.io/keypadss-website.github.io/assets/images/kss-logo.png">
+    <meta property="og:url" content="https://stevovenom.github.io/keypadss-website.github.io/about-us.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_KE">
+    <meta property="og:site_name" content="Keypad Systems">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Keypad Systems Kenya">
+    <meta name="twitter:description"
+        content="Leading software development company in Nairobi with expertise in custom solutions, mobile apps, and enterprise systems.">
+    <meta name="twitter:image"
+        content="https://stevovenom.github.io/keypadss-website.github.io/assets/images/kss-logo.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://stevovenom.github.io/keypadss-website.github.io/about-us.html">
     <!-- Local Bootstrap CSS -->
     <link href="bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -19,7 +46,74 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
-    
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Keypad Systems Kenya",
+  "description": "Learn about Keypad Systems, a leading software development company in Nairobi, Kenya with 6+ years experience and 50+ clients served",
+  "url": "https://stevovenom.github.io/keypadss-website.github.io/about-us.html",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://stevovenom.github.io/keypadss-website.github.io/index.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About Us"
+      }
+    ]
+  },
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Keypad Systems",
+    "alternateName": "Keypad Solutions LTD",
+    "description": "Software development company specializing in custom solutions, mobile applications, and enterprise systems in Kenya",
+    "url": "https://stevovenom.github.io/keypadss-website.github.io/",
+    "logo": "https://stevovenom.github.io/keypadss-website.github.io/assets/images/kss-logo.png",
+    "foundingDate": "2018",
+    "founders": [
+      {
+        "@type": "Person",
+        "name": "Keypad Systems Directors"
+      }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Vision Plaza, 5th Floor Suite 34",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi",
+      "addressCountry": "KE",
+      "postalCode": "00100"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+254-113-426-561",
+      "contactType": "customer service",
+      "areaServed": "KE",
+      "availableLanguage": ["English", "Swahili"]
+    },
+    "sameAs": [
+      "https://facebook.com/keypadsystems",
+      "https://twitter.com/keypadsystems",
+      "https://linkedin.com/company/keypadsystems",
+      "https://instagram.com/keypadsystems"
+    ],
+    "numberOfEmployees": {"@type": "QuantitativeValue", "value": "2-10"},
+    "foundingLocation": "Nairobi, Kenya",
+    "keywords": "software development Kenya, Nairobi IT company, mobile app developers, custom software solutions"
+  }
+}
+</script>
+
+
     <style>
         /* Custom styles (cleaned up - no duplicates) */
         .bg-accent\/20 {
@@ -527,10 +621,9 @@
             padding-bottom: 0;
             /* Space for footer when it appears */
         }
-        
     </style>
     <!-- Preload critical images -->
-<link rel="preload" href="assets/images/kss-logo.png" as="image" type="image/png">
+    <link rel="preload" href="assets/images/kss-logo.png" as="image" type="image/png">
 </head>
 
 <body class="bg-gray-900 min-h-screen text-white scroll-bg-container">
@@ -571,7 +664,8 @@
                 <div class="logo">
                     <a href="https://keypadsystems.co.ke/" class="logo-link">
                         <div class="logo-container">
-                            <img src="assets/images/kss-logo.png" alt="Keypad Systems Logo" class="logo-image" loading="eager">
+                            <img src="assets/images/kss-logo.png" alt="Keypad Systems Logo" class="logo-image"
+                                loading="eager">
                         </div>
                     </a>
                 </div>
@@ -686,16 +780,17 @@
     <!-- Main Content -->
     <div class="content-wrapper">
         <!-- Hero Section -->
-        <section class="relative py-20">
+        <section class="relative py-20" itemscope itemtype="https://schema.org/Organization">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
                     <div class="inline-block px-4 py-2 mb-4 bg-blue-500/10 rounded-full">
                         <span class="text-blue-400 font-medium text-sm">About Us</span>
                     </div>
-                    <h1 class="text-4xl md:text-6xl font-bold text-purple-400 mb-6">Our Story</h1>
-                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                        At Keypad Systems, we're passionate about creating innovative technology solutions that
-                        transform businesses and empower growth in Kenya and beyond.
+                    <h1 class="text-4xl md:text-6xl font-bold text-purple-400 mb-6" itemprop="name">Our Story</h1>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto" itemprop="description">
+                        Leading software development company in Nairobi with <strong>6+ years experience</strong>,
+                        serving <strong>50+ clients</strong> across Kenya.
+                        We specialize in custom software solutions, mobile applications, and enterprise systems.
                     </p>
                 </div>
             </div>
@@ -717,9 +812,12 @@
                             <div class="inline-block px-4 py-2 mb-4 bg-blue-500/10 backdrop-blur-sm rounded-full">
                                 <span class="text-blue-500 font-medium text-sm">About Us</span>
                             </div>
-                            <h2 class="text-4xl md:text-5xl font-bold text-purple-600 mb-6">Keypad Solutions LTD</h2>
-                            <p class="text-lg text-primary/80 max-w-2xl mx-auto">We're a team of dedicated professionals
-                                passionate about building innovative tech solutions that help businesses in Kenya thrive
+                            <h2 class="text-4xl md:text-5xl font-bold text-purple-600 mb-6" itemprop="legalName">Keypad
+                                Solutions LTD</h2>
+                            <p class="text-lg text-primary/80 max-w-2xl mx-auto">We're a team of <strong>dedicated
+                                    professionals</strong>
+                                passionate about building <strong>innovative tech solutions</strong> that help
+                                businesses in Kenya thrive
                                 in the digital age.</p>
                         </div>
                     </div>
@@ -844,7 +942,7 @@
                                     <h3 class="text-xl font-bold text-purple-600 mb-3 flex items-center">Our Journey
                                     </h3>
                                     <p class="text-primary/80 leading-relaxed mb-5">Keypad Solutions LTD was officially
-                                        incorporated on May 30, 2024, bringing together a team of talented directors
+                                        incorporated on 2017, bringing together a team of talented directors
                                         with diverse backgrounds in technology, business, and innovation. Our journey
                                         began with a shared vision to create a technology company that would make a
                                         meaningful impact in Kenya's digital landscape.</p>
@@ -1026,11 +1124,11 @@
                                                 <rect width="18" height="18" x="3" y="4" rx="2"></rect>
                                                 <path d="M3 10h18"></path>
                                             </svg>
-                                            May 2024
+                                            2018
                                         </div>
                                         <h3 class="text-primary text-lg font-semibold mb-2">Keypad Formation</h3>
-                                        <p class="text-primary/70">Officially incorporated as Keypad Solutions LTD on
-                                            May 30, 2024, trading as Keypad, bringing together a team of talented
+                                        <p class="text-primary/70">Officially incorporated as Keypad Solutions LTD in
+                                            2018, trading as Keypad, bringing together a team of talented
                                             directors.</p>
                                     </div>
 
@@ -1143,43 +1241,44 @@
                     <!-- Partner 1 -->
                     <div
                         class="bg-gray-50 p-6 rounded-xl text-center hover:transform hover:scale-110 transition-all duration-300 flex items-center justify-center h-32 border border-gray-200 hover:border-blue-300 hover:shadow-lg">
-                        <img src="assets/images/partners/partner-1.png" alt="Partner 1"
-                            class="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity">
+                        <img src="assets/images/partners/partner-1.png" alt="Technology Partner - Keypad Systems Kenya"
+                            class="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy">
                     </div>
 
                     <!-- Partner 2 -->
                     <div
                         class="bg-gray-50 p-6 rounded-xl text-center hover:transform hover:scale-110 transition-all duration-300 flex items-center justify-center h-32 border border-gray-200 hover:border-blue-300 hover:shadow-lg">
-                        <img src="assets/images/partners/partner-2.png" alt="Partner 2"
-                            class="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity">
+                        <img src="assets/images/partners/partner-2.png"
+                            alt="Software Development Partner - Nairobi Kenya"
+                            class="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy">
                     </div>
 
                     <!-- Partner 3 -->
                     <div
                         class="bg-gray-50 p-6 rounded-xl text-center hover:transform hover:scale-110 transition-all duration-300 flex items-center justify-center h-32 border border-gray-200 hover:border-blue-300 hover:shadow-lg">
-                        <img src="assets/images/partners/partner-3.png" alt="Partner 3"
-                            class="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity">
+                        <img src="assets/images/partners/partner-3.png" alt="Technology Partner - Keypad Systems Kenya"
+                            class="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy">
                     </div>
 
                     <!-- Partner 4 -->
                     <div
                         class="bg-gray-50 p-6 rounded-xl text-center hover:transform hover:scale-110 transition-all duration-300 flex items-center justify-center h-32 border border-gray-200 hover:border-blue-300 hover:shadow-lg">
-                        <img src="assets/images/partners/partner-4.png" alt="Partner 4"
-                            class="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity">
+                        <img src="assets/images/partners/partner-4.png" alt="Technology Partner - Keypad Systems Kenya"
+                            class="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy">
                     </div>
 
                     <!-- Partner 5 -->
                     <div
                         class="bg-gray-50 p-6 rounded-xl text-center hover:transform hover:scale-110 transition-all duration-300 flex items-center justify-center h-32 border border-gray-200 hover:border-blue-300 hover:shadow-lg">
-                        <img src="assets/images/partners/partner-5.png" alt="Partner 5"
-                            class="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity">
+                        <img src="assets/images/partners/partner-5.png" alt="Technology Partner - Keypad Systems Kenya"
+                            class="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy">
                     </div>
 
                     <!-- Partner 6 -->
                     <div
                         class="bg-gray-50 p-6 rounded-xl text-center hover:transform hover:scale-110 transition-all duration-300 flex items-center justify-center h-32 border border-gray-200 hover:border-blue-300 hover:shadow-lg">
-                        <img src="assets/images/partners/partner-6.png" alt="Partner 6"
-                            class="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity">
+                        <img src="assets/images/partners/partner-6.png" alt="Technology Partner - Keypad Systems Kenya"
+                            class="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy">
                     </div>
                 </div>
 
