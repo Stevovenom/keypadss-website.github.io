@@ -5,7 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <title>Contact Us - Keypad Systems</title>
+
+    <!-- OPTIMIZED TITLE -->
+    <title>Contact Keypad Systems Kenya | Software Developers Nairobi +254 113 426 561</title>
+
+    <!-- ADD META DESCRIPTION -->
+    <meta name="description"
+        content="Get in touch with Keypad Systems for custom software development, mobile apps, web applications, and business solutions in Kenya. Call +254 113 426 561 or visit our Vision Plaza office in Nairobi.">
+
+    <!-- ADD KEYWORDS -->
+    <meta name="keywords"
+        content="contact software developers Kenya, Nairobi IT company contact, software development services Kenya, mobile app developers contact, custom software solutions Nairobi">
+
+    <!-- ADD OG TAGS FOR SOCIAL MEDIA -->
+    <meta property="og:title" content="Contact Keypad Systems - Software Development Company Kenya">
+    <meta property="og:description"
+        content="Get professional software development services in Kenya. Call +254 113 426 561 or visit our Vision Plaza office in Nairobi.">
+    <meta property="og:image"
+        content="https://stevovenom.github.io/keypadss-website.github.io/assets/images/contact-us-04.jpeg">
+    <meta property="og:url" content="https://stevovenom.github.io/keypadss-website.github.io/contact-us.html">
+    <meta property="og:type" content="website">
+
+    <!-- ADD TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact Keypad Systems Kenya">
+    <meta name="twitter:description" content="Professional software development services in Nairobi, Kenya">
+    <meta name="twitter:image"
+        content="https://stevovenom.github.io/keypadss-website.github.io/assets/images/contact-us-04.jpeg">
+
+    <!-- CANONICAL URL -->
+    <link rel="canonical" href="https://stevovenom.github.io/keypadss-website.github.io/contact-us.html">
 
     <!-- Local Bootstrap CSS -->
     <link href="bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -20,7 +49,66 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Keypad Systems",
+  "description": "Contact page for Keypad Systems software development company",
+  "url": "https://stevovenom.github.io/keypadss-website.github.io/contact-us.html",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://stevovenom.github.io/keypadss-website.github.io/index.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact Us"
+      }
+    ]
+  },
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Keypad Systems",
+    "url": "https://keypadsystems.co.ke/",
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+254-113-426-561",
+        "contactType": "customer service",
+        "areaServed": "KE",
+        "availableLanguage": "English"
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+254-111-513-342",
+        "contactType": "technical support",
+        "areaServed": "KE",
+        "availableLanguage": "English"
+      }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Vision Plaza, 5th Floor Suite 34",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi",
+      "addressCountry": "KE",
+      "postalCode": "00100"
+    },
+    "sameAs": [
+      "https://facebook.com/keypadsystems",
+      "https://twitter.com/keypadsystems",
+      "https://linkedin.com/company/keypadsystems",
+      "https://instagram.com/keypadsystems"
+    ]
+  }
+}
+</script>
     <!-- Include your existing styles -->
     <style>
         /* .glass-card{
@@ -671,6 +759,214 @@
                 max-width: 100%;
             }
         }
+
+        /* FAQ Section Styling */
+        .faq-container {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-question {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 50px !important;
+            padding: 1.25rem 1.5rem !important;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #1f2937;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            text-align: left;
+        }
+
+        .faq-question:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.15);
+            transform: translateY(-2px);
+            background: linear-gradient(to right, #f8fafc, white);
+        }
+
+        .faq-question.active {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            border-color: #3b82f6;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.25);
+        }
+
+        .faq-icon {
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            font-size: 1.25rem;
+            min-width: 24px;
+        }
+
+        .faq-question.active .faq-icon {
+            transform: rotate(180deg);
+            color: white;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #f8fafc;
+            border-radius: 0 0 20px 20px;
+            margin-top: -5px;
+            padding: 0 2rem;
+            border: 2px solid transparent;
+            border-top: none;
+        }
+
+        .faq-answer.open {
+            max-height: 1000px;
+            padding: 1.5rem 2rem 2rem;
+            border-color: #e2e8f0;
+            border-top: none;
+            margin-top: 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-answer-content {
+            color: #4b5563;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .faq-answer-content ul,
+        .faq-answer-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-answer-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-answer-content strong {
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        /* FAQ Item spacing */
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        /* Contact links in FAQ */
+        .email-link {
+            color: #3b82f6;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px dotted #3b82f6;
+            padding-bottom: 1px;
+            transition: all 0.2s;
+        }
+
+        .email-link:hover {
+            color: #2563eb;
+            border-bottom-style: solid;
+        }
+
+        .phone-link {
+            color: #10b981;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px dotted #10b981;
+            padding-bottom: 1px;
+            transition: all 0.2s;
+        }
+
+        .phone-link:hover {
+            color: #059669;
+            border-bottom-style: solid;
+        }
+
+        /* FAQ Header */
+        .faq-header {
+            position: relative;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .faq-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .faq-container {
+                padding: 1.5rem;
+                border-radius: 16px;
+            }
+
+            .faq-question {
+                padding: 1rem 1.25rem !important;
+                font-size: 1rem;
+                border-radius: 40px !important;
+            }
+
+            .faq-answer {
+                padding: 0 1.25rem;
+            }
+
+            .faq-answer.open {
+                padding: 1.25rem 1.25rem 1.5rem;
+            }
+        }
+
+        /* Contact Form Container Styling */
+        .mess-container {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .mess-container:hover {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+            transform: translateY(-5px);
+        }
+
+        /* Or for a more gradient/glass effect: */
+        .mess-container.glass {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.9));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        /* Or for a simple bordered look: */
+        .mess-container.bordered {
+            border: 2px solid #3b82f6;
+            border-radius: 20px;
+            padding: 2.5rem;
+            background: linear-gradient(to bottom right, #f8fafc, white);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .mess-container {
+                padding: 1.5rem;
+                border-radius: 16px;
+            }
+        }
     </style>
 </head>
 
@@ -748,7 +1044,7 @@
                         </div>
                         <div>
                             <p class="text-sm text-gray-600 mb-1">Email Us</p>
-                            <h6 class="font-semibold text-gray-800">info@keypadsystems.co.ke</h6>
+                            <h6 class="font-semibold text-gray-800 ">info@keypadsystems.co.ke</h6>
                         </div>
                     </div>
                 </div>
@@ -861,7 +1157,7 @@
                         team.
                     </span>
                     <span class="contact-box-item number">
-                        <a href="tel:+0123456789" class="phone-number text-xl">
+                        <a href="tel:+0123456789" class="phone-link">
                             +254 113 426 561
                         </a>
                     </span>
@@ -894,67 +1190,71 @@
                     <!-- Your existing contact form content -->
                     <div>
                         <h2 class="text-3xl font-bold text-gray-800 mb-6">Send us a Message</h2>
-                        <form class="space-y-6" id="contactForm">
-                            <!-- Your form fields remain exactly the same -->
-                            <div class="grid md:grid-cols-2 gap-6">
+                        <div class="mess-container">
+                            <form class="space-y-6" id="contactForm">
+                                <!-- Your form fields remain exactly the same -->
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="firstName"
+                                            class="block text-sm font-medium text-gray-700 mb-2">First
+                                            Name</label>
+                                        <input type="text" id="firstName" name="firstName"
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                                            required>
+                                    </div>
+                                    <div>
+                                        <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last
+                                            Name</label>
+                                        <input type="text" id="lastName" name="lastName"
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                                            required>
+                                    </div>
+                                </div>
+
                                 <div>
-                                    <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First
-                                        Name</label>
-                                    <input type="text" id="firstName" name="firstName"
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email
+                                        Address</label>
+                                    <input type="email" id="email" name="email"
                                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                                         required>
                                 </div>
+
                                 <div>
-                                    <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last
-                                        Name</label>
-                                    <input type="text" id="lastName" name="lastName"
-                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                                        required>
+                                    <label for="company"
+                                        class="block text-sm font-medium text-gray-700 mb-2">Company</label>
+                                    <input type="text" id="company" name="company"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
                                 </div>
-                            </div>
 
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email
-                                    Address</label>
-                                <input type="email" id="email" name="email"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                                    required>
-                            </div>
+                                <div>
+                                    <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Service
+                                        Interested In</label>
+                                    <select id="service" name="service"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+                                        <option value="">Select a service</option>
+                                        <option value="web-development">Web Development</option>
+                                        <option value="mobile-apps">Mobile Applications</option>
+                                        <option value="enterprise">Enterprise Solutions</option>
+                                        <option value="consulting">IT Consulting</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
 
-                            <div>
-                                <label for="company"
-                                    class="block text-sm font-medium text-gray-700 mb-2">Company</label>
-                                <input type="text" id="company" name="company"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
-                            </div>
+                                <div>
+                                    <label for="message"
+                                        class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                    <textarea id="message" name="message" rows="5"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                                        placeholder="Tell us about your project..."></textarea>
+                                </div>
 
-                            <div>
-                                <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Service
-                                    Interested In</label>
-                                <select id="service" name="service"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
-                                    <option value="">Select a service</option>
-                                    <option value="web-development">Web Development</option>
-                                    <option value="mobile-apps">Mobile Applications</option>
-                                    <option value="enterprise">Enterprise Solutions</option>
-                                    <option value="consulting">IT Consulting</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
+                                <button type="submit" class="btn btn-primary w-full py-3">
+                                    Send Message
+                                    <i class="bi bi-send ml-2"></i>
+                                </button>
+                            </form>
+                        </div>
 
-                            <div>
-                                <label for="message"
-                                    class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                                <textarea id="message" name="message" rows="5"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                                    placeholder="Tell us about your project..."></textarea>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary w-full py-3">
-                                Send Message
-                                <i class="bi bi-send ml-2"></i>
-                            </button>
-                        </form>
                     </div>
 
                     <div>
@@ -974,14 +1274,14 @@
                                 <div class="flex items-start mb-4">
                                     <i class="bi bi-telephone text-blue-600 text-xl mr-3 mt-1"></i>
                                     <div>
-                                        <a href="tel:+0123456789" class="phone-number">+254 113 426 561</a>
+                                        <a href="tel:+0123456789" class="phone-link">+254 113 426 561</a>
                                     </div>
                                 </div>
                                 <div class="flex items-start">
                                     <i class="bi bi-envelope text-blue-600 text-xl mr-3 mt-1"></i>
                                     <div>
                                         <a href="mailto:info@keypadsystems.co.ke"
-                                            class="text-blue-600 hover:text-blue-700">info@keypadsystems.co.ke</a>
+                                            class="email-link">info@keypadsystems.co.ke</a>
                                     </div>
                                 </div>
                             </div>
@@ -997,7 +1297,7 @@
                                 <p class="text-red-700 text-sm mb-3">
                                     For urgent technical issues affecting your business operations.
                                 </p>
-                                <a href="tel:+0123456789" class="phone-number text-lg">+254 111 513 342</a>
+                                <a href="tel:+0123456789" class="phone-link">+254 111 513 342</a>
                             </div>
                         </div>
                     </div>
@@ -1028,13 +1328,198 @@
             </div>
         </section>
 
-        <!-- Footer (UNCHANGED) -->
-        <footer class="bottom_footer w-full">
-            <div class="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center text-sm gap-4">
-                <p>Copyright © Keypad Systems <span id="currentYear">2025</span>. All rights reserved.</p>
-                <p>Powered By: Keypad Systems</p>
+        <!-- FAQ Section -->
+        <section class="py-16 bg-gray-50" itemscope itemtype="https://schema.org/FAQPage">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- SEO-rich header -->
+                <div class="faq-header text-center">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4" itemprop="name">
+                        Frequently Asked Questions
+                    </h2>
+                    <meta itemprop="description"
+                        content="Get answers to common questions about software development services in Kenya, pricing, support, and working process." />
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Find answers to common questions about our software development services, working process, and
+                        support in Kenya.
+                    </p>
+                </div>
+
+                <div class="faq-container" id="faqAccordion">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <button class="faq-question" data-faq="1" itemprop="name">
+                            <span>What software development services do you offer in Kenya?</span>
+                            <i class="bi bi-chevron-down text-blue-600 faq-icon" data-faq-icon="1"></i>
+                        </button>
+                        <div class="faq-answer hidden" data-faq-answer="1" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <div class="faq-answer-content" itemprop="text">
+                                <p>We provide comprehensive software development services across Kenya including:</p>
+                                <ul>
+                                    <li><strong>Custom Software Development:</strong> Tailored solutions for businesses
+                                        of all sizes</li>
+                                    <li><strong>Mobile App Development:</strong> Native iOS & Android applications</li>
+                                    <li><strong>Web Application Development:</strong> Responsive and scalable web
+                                        solutions</li>
+                                    <li><strong>M-Pesa & Payment Integration:</strong> Secure payment processing
+                                        solutions</li>
+                                    <li><strong>Business Solutions:</strong> Smartshule (school management), Smartchurch
+                                        (church management), HR systems</li>
+                                    <li><strong>IT Consulting:</strong> Digital transformation strategy and
+                                        implementation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <button class="faq-question" data-faq="4" itemprop="name">
+                            <span>Do you provide post-launch support and maintenance?</span>
+                            <i class="bi bi-chevron-down text-blue-600 faq-icon" data-faq-icon="4"></i>
+                        </button>
+                        <div class="faq-answer hidden" data-faq-answer="4" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <div class="faq-answer-content" itemprop="text">
+                                <p>Yes, we offer comprehensive post-launch support packages:</p>
+                                <ul>
+                                    <li><strong>Basic Support:</strong> Bug fixes and minor updates</li>
+                                    <li><strong>Standard Support:</strong> Regular maintenance, security updates, and
+                                        technical support</li>
+                                    <li><strong>Premium Support:</strong> 24/7 monitoring, emergency support, and SLA
+                                        guarantees</li>
+                                    <li><strong>Training:</strong> User training and documentation</li>
+                                </ul>
+                                <p>Contact our support team at
+                                    <a href="mailto:support@keypadsystems.co.ke" class="email-link">
+                                        support@keypadsystems.co.ke
+                                    </a>
+                                    or call
+                                    <a href="tel:+254111513342" class="phone-link">
+                                        +254 111 513 342
+                                    </a>
+                                    for emergency issues.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add more FAQ items with the same structure -->
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <button class="faq-question" data-faq="5" itemprop="name">
+                            <span>What is your typical software development process?</span>
+                            <i class="bi bi-chevron-down text-blue-600 faq-icon" data-faq-icon="5"></i>
+                        </button>
+                        <div class="faq-answer hidden" data-faq-answer="5" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <div class="faq-answer-content" itemprop="text">
+                                <p>Our proven 6-step development process ensures project success:</p>
+                                <ol>
+                                    <li><strong>Discovery & Consultation:</strong> Understand your business needs and
+                                        project requirements</li>
+                                    <li><strong>Planning & Proposal:</strong> Detailed project plan, timeline, and cost
+                                        estimation</li>
+                                    <li><strong>Design & Prototyping:</strong> UI/UX design and interactive prototypes
+                                    </li>
+                                    <li><strong>Development:</strong> Agile development with regular progress updates
+                                    </li>
+                                    <li><strong>Testing & Quality Assurance:</strong> Comprehensive testing and bug
+                                        fixing</li>
+                                    <li><strong>Deployment & Support:</strong> Launch and ongoing maintenance</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <button class="faq-question" data-faq="6" itemprop="name">
+                            <span>Can you work with existing software or systems?</span>
+                            <i class="bi bi-chevron-down text-blue-600 faq-icon" data-faq-icon="6"></i>
+                        </button>
+                        <div class="faq-answer hidden" data-faq-answer="6" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <div class="faq-answer-content" itemprop="text">
+                                <p class="mb-3">Absolutely! We specialize in:</p>
+                                <ul>
+                                    <li><strong>Software Integration:</strong> Connecting new solutions with your
+                                        existing systems</li>
+                                    <li><strong>System Migration:</strong> Moving data and functionality to new
+                                        platforms</li>
+                                    <li><strong>Legacy System Modernization:</strong> Updating old software to modern
+                                        standards</li>
+                                    <li><strong>API Development:</strong> Creating interfaces for system communication
+                                    </li>
+                                    <li><strong>Third-party Integrations:</strong> Connecting with tools like M-Pesa,
+                                        banking systems, SMS gateways</li>
+                                </ul>
+                                <p>We conduct a technical assessment to understand your current infrastructure before
+                                    proposing solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <button class="faq-question" data-faq="3" itemprop="name">
+                            <span>How can I get a quote for my software project?</span>
+                            <i class="bi bi-chevron-down text-blue-600 faq-icon" data-faq-icon="3"></i>
+                        </button>
+                        <div class="faq-answer hidden" data-faq-answer="3" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <div class="faq-answer-content" itemprop="text">
+                                <p>Getting a quote is simple. Choose any of these methods:</p>
+                                <ul>
+                                    <li><strong>Call our sales team:</strong> <a href="tel:+254113426561"
+                                            class="phone-link">+254 113 426 561</a></li>
+                                    <li><strong>Email us:</strong> <a href="mailto:info@keypadsystems.co.ke"
+                                            class="email-link">info@keypadsystems.co.ke</a> with your project details
+                                    </li>
+                                    <li><strong>Fill out the contact form</strong> on this page</li>
+                                    <li><strong>Visit our office</strong> at Vision Plaza for a free consultation</li>
+                                </ul>
+                                <p>We'll schedule a discovery call to understand your requirements and provide a
+                                    detailed proposal within 48 hours.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Help with improved CTA -->
+                <!-- <div class="mt-12 text-center">
+                    <div
+                        class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-8 inline-block">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Still have questions?</h3>
+                        <p class="text-gray-600 mb-6 max-w-md mx-auto">We're here to help you with your software
+                            development needs in Kenya.</p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="tel:+254113426561"
+                                class="btn btn-primary px-8 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                                <i class="bi bi-telephone mr-2"></i>
+                                Call Us Now
+                            </a>
+                            <a href="#contact-form"
+                                class="btn btn-outline px-8 py-3 rounded-full border-2 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300">
+                                <i class="bi bi-envelope mr-2"></i>
+                                Send Message
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
             </div>
-        </footer>
+        </section>
+        <!-- Footer (UNCHANGED) -->
+    <footer class="bottom_footer w-full">
+        <div class="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center text-sm gap-4">
+            <p>Copyright © Keypad Systems <span id="currentYear">2025</span>. All rights reserved.</p>
+            <p>Powered By: Keypad Systems</p>
+        </div>
+    </footer>
+    </div>
+    
+    </section>
+
+    
     </div>
 
 
@@ -1089,6 +1574,68 @@
             link.addEventListener('click', () => {
                 document.getElementById('mobileMenu').classList.add('hidden');
             });
+        });
+    </script>
+
+    <script>
+        // FAQ Accordion Functionality with Single Open Item
+        document.addEventListener('DOMContentLoaded', function () {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            const faqAnswers = document.querySelectorAll('.faq-answer');
+            const faqIcons = document.querySelectorAll('.faq-icon');
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function () {
+                    const faqId = this.getAttribute('data-faq');
+                    const answer = document.querySelector(`[data-faq-answer="${faqId}"]`);
+                    const icon = document.querySelector(`[data-faq-icon="${faqId}"]`);
+
+                    // Check if the clicked answer is already open
+                    const isCurrentlyOpen = !answer.classList.contains('hidden');
+
+                    // Close all other FAQs first
+                    faqAnswers.forEach(otherAnswer => {
+                        if (otherAnswer !== answer) {
+                            otherAnswer.classList.add('hidden');
+                            // Reset height for smooth transition
+                            otherAnswer.style.maxHeight = '0';
+                        }
+                    });
+
+                    // Reset all other icons
+                    faqIcons.forEach(otherIcon => {
+                        if (otherIcon !== icon) {
+                            otherIcon.style.transform = 'rotate(0deg)';
+                        }
+                    });
+
+                    // Toggle current answer
+                    if (isCurrentlyOpen) {
+                        // Close the current one if it was open
+                        answer.classList.add('hidden');
+                        answer.style.maxHeight = '0';
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        // Open the current one
+                        answer.classList.remove('hidden');
+                        // Get the scroll height for smooth animation
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // Initialize all answers with maxHeight: 0 for smooth animation
+            faqAnswers.forEach(answer => {
+                answer.style.maxHeight = '0';
+                answer.style.transition = 'max-height 0.3s ease-out, padding 0.3s ease-out';
+                answer.style.overflow = 'hidden';
+            });
+
+            // Optional: Open first FAQ by default
+            // setTimeout(() => {
+            //     document.querySelector('[data-faq="1"]').click();
+            // }, 100);
         });
     </script>
 </body>
